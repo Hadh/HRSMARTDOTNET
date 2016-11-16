@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRSmart", "HRSmart\HRSmart.csproj", "{A40761ED-2CC3-45A0-99B9-4FA9DC7F73F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRSmart.data", "HRSmart.data\HRSmart.data.csproj", "{44BAE3A3-BAD2-4959-B5A0-878D5091B28F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRSmart.Domain", "HRSmart.Domain\HRSmart.Domain.csproj", "{35F04E2C-BDC8-4DD7-81C1-382826E2B286}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRSmart.Service", "HRSmart.Service\HRSmart.Service.csproj", "{0C7459AF-4F33-44AF-9B8D-9C198AF3C22F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRSmart.Console", "HRSmart.Console\HRSmart.Console.csproj", "{CF01C279-2C9D-4682-8964-918B82FC593A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRSmart.ServicePattern", "HRSmart.ServicePattern\HRSmart.ServicePattern.csproj", "{E78F3208-8794-4A15-88D3-5A76565DB4C2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A40761ED-2CC3-45A0-99B9-4FA9DC7F73F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A40761ED-2CC3-45A0-99B9-4FA9DC7F73F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A40761ED-2CC3-45A0-99B9-4FA9DC7F73F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A40761ED-2CC3-45A0-99B9-4FA9DC7F73F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44BAE3A3-BAD2-4959-B5A0-878D5091B28F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44BAE3A3-BAD2-4959-B5A0-878D5091B28F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44BAE3A3-BAD2-4959-B5A0-878D5091B28F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44BAE3A3-BAD2-4959-B5A0-878D5091B28F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35F04E2C-BDC8-4DD7-81C1-382826E2B286}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35F04E2C-BDC8-4DD7-81C1-382826E2B286}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35F04E2C-BDC8-4DD7-81C1-382826E2B286}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35F04E2C-BDC8-4DD7-81C1-382826E2B286}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C7459AF-4F33-44AF-9B8D-9C198AF3C22F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C7459AF-4F33-44AF-9B8D-9C198AF3C22F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C7459AF-4F33-44AF-9B8D-9C198AF3C22F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C7459AF-4F33-44AF-9B8D-9C198AF3C22F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF01C279-2C9D-4682-8964-918B82FC593A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF01C279-2C9D-4682-8964-918B82FC593A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF01C279-2C9D-4682-8964-918B82FC593A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF01C279-2C9D-4682-8964-918B82FC593A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E78F3208-8794-4A15-88D3-5A76565DB4C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E78F3208-8794-4A15-88D3-5A76565DB4C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E78F3208-8794-4A15-88D3-5A76565DB4C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E78F3208-8794-4A15-88D3-5A76565DB4C2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

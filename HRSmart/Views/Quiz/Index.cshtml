@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Quiz - Analytics";
+    Layout = "~/Views/Shared/templateLayout.cshtml";
+}
+
+<div class="block-header">
+    <h2>Quiz Analytics</h2>
+</div>
+
+<div class="card">
+    @foreach (KeyValuePair<string, int> question in ViewBag.Data)
+    {
+        <p>
+            question.Key<br/>
+            question.Value
+        </p> 
+    }
+</div>
+
+
+
+
+
