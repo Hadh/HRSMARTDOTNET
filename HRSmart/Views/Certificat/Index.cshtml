@@ -3,6 +3,8 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/templateLayout.cshtml";
+    Random rnd = new Random();
+    var colors = ViewBag.colors;
 }
 
 <h2>Index</h2>
@@ -62,6 +64,24 @@
             }
 
         </div>
+    </div>
+
+    
+    
+    <div class="row" style="padding-bottom: 20px;">
+        <h3>Average of Certificats Per Users</h3>
+@foreach (KeyValuePair<string, int> dicos in ViewBag.dico)
+{
+    string color = colors[rnd.Next(0, 6)];
+            <div class="col-sm-3">
+                <div class="epc-item" style="background-color: @color">
+                    <div class="easy-pie main-pie" data-percent="@dicos.Value">
+                        <div class="percent">@dicos.Value</div>
+                        <div class="pie-title">@dicos.Key</div>
+                    </div>
+                </div>
+            </div>
+        }
     </div>
 
 </section>

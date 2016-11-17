@@ -1,5 +1,6 @@
 ﻿using HRSmart.Service.Business;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,6 +12,7 @@ namespace HRSmart.Controllers
     public class CertificatController : Controller
     {
         private IServiceCertificat serviceCertificat = null;
+        IDictionary<string,int> dico = new Dictionary<string, int>();
         public CertificatController()
         {
             serviceCertificat = new ServiceCertificat();
@@ -19,9 +21,23 @@ namespace HRSmart.Controllers
         public ActionResult Index()
         {
             var certificats = serviceCertificat.GetMany().ToList();
+           //var skills = 
+            foreach (certificat certif in certificats)
+            {
 
+                
+                ICollection<userskill> c = certif.userskills;
+                dico[certif.name] = c.Count()*100/1; // total count of users
+                
+
+            
+            }
+            ArrayList colorList = new ArrayList { "#2196F3", "#FF9800", "#4CAF50", "#F44336", "#9C27B0", "#3F51B5", "#CDDC39" };
+            ViewBag.colors = colorList;
+            ViewBag.dico = dico;
             return View(certificats);
         }
+
 
         // GET: Certificat/Details/5
         public ActionResult Details(int id)
