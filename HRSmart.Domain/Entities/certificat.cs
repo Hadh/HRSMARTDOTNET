@@ -9,6 +9,12 @@ namespace HRSmart.Domain.Entities
         {
             this.userskills = new List<userskill>();
         }
+        public certificat(int id)
+        {
+            this.userskills = new List<userskill>();
+            this.id = id;
+        }
+
 
         public int id { get; set; }
         public string name { get; set; }

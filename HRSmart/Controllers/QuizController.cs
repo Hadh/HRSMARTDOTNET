@@ -9,6 +9,7 @@ using HRSmart.Service.Business;
 
 namespace HRSmart.Controllers
 {
+    [Authorize]
     public class QuizController : Controller
     {
         private IServiceQuiz sq = new ServiceQuiz();
@@ -18,7 +19,7 @@ namespace HRSmart.Controllers
         public ActionResult Index()
         {
             IDictionary<string,int> assoc = new Dictionary<string,int>();
-            IEnumerable<question> questions = squ.GetMany();
+            IEnumerable<question> questions = squ.GetMany().ToList();
             foreach (question question in questions)
             {
                 assoc[question.body] = question.quizs.Count;
