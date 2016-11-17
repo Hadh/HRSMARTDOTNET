@@ -1,6 +1,8 @@
 ﻿@{
     ViewBag.Title = "Quiz - Analytics";
     Layout = "~/Views/Shared/templateLayout.cshtml";
+    Random rnd = new Random();
+
 }
 
 <div class="block-header">
@@ -8,13 +10,27 @@
 </div>
 
 <div class="card">
-    @foreach (KeyValuePair<string, int> question in ViewBag.Data)
-    {
-        <p>
-            question.Key<br/>
-            question.Value
-        </p> 
-    }
+    <h3>Most used Questions</h3>
+    <div class="container" style="padding: 30px 0">
+        <div class="row">
+            @foreach (KeyValuePair<string, int> question in ViewBag.MostUsedQuestions)
+            {
+                string color = ViewBag.colors[rnd.Next(0, 6)];
+                <div class="col-sm-5" style="margin: 10px 20px">
+                    <h5>@question.Key</h5>
+                    <div class="progress progress-striped active">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="@question.Value" aria-valuemin="0" aria-valuemax="100" style="width: @question.Value%; background-color: @color"></div>
+                    </div>
+                </div>
+            }
+            
+        </div>
+    </div>
+    
+    @ViewBag.AverageQuizResults
+    
+        
+
 </div>
 
 

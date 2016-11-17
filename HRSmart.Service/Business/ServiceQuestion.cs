@@ -16,6 +16,12 @@ namespace HRSmart.Service.Business
 
         public ServiceQuestion() : base(itw)
         {
+            
         }
+
+        /*public IEnumerable<question> GetQuestionsWithQuiz()
+        {
+            return ;
+        }*/
     }
 }
