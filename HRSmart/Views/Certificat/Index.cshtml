@@ -1,0 +1,69 @@
+﻿@model IEnumerable<HRSmart.Domain.Entities.certificat>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/templateLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+
+<section id="content" style="padding-left: 200px;">
+    <div class="container container-alt">
+
+        <div class="text-center">
+            <h2 class="f-400">LISTE DES CERTIFICATS</h2>
+            <p class="c-gray m-t-20 m-b-20">
+
+            </p>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="row m-t-25">
+            @foreach (var item in Model)
+            {
+
+
+                <div class="col-sm-4">
+                    <div class="card pt-inner">
+                        <div class="pti-header bgm-cyan">
+                            <h2>
+                                @Html.DisplayFor(modelItem => item.name)
+
+                            </h2>
+                            <div class="ptih-title">@Html.DisplayFor(modelItem => item.skill.name)</div>
+                        </div>
+
+                        <div class="pti-body">
+                            <div class="ptib-item">
+                                @Html.ActionLink("Edit", "Edit", new {id = item.id}) 
+
+                            </div>
+                            <div class="ptib-item">
+                                @Html.ActionLink("Details", "Details", new {id = item.id}) 
+
+                            </div>
+                            <div class="ptib-item">
+                                @Html.ActionLink("Delete", "Delete", new {id = item.id})
+                            </div>
+
+                        </div>
+
+                        <div class="pti-footer">
+                            <a href="#" class="bgm-amber"><i class="zmdi zmdi-check"></i></a>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+
+</section>
+
+

@@ -15,6 +15,8 @@ namespace HRSmart.Console
         {
             System.Console.WriteLine("here1");
             //mysqlpiContext mc = new mysqlpiContext();
+
+
             buisness b = new buisness();
             b.name = "test final";
             /*mc.buisnesses.Add(b);
