@@ -10,5 +10,6 @@ namespace HRSmart.Service.Business
 {
     public interface IServiceCertificat : IMyServiceGeneric<certificat>
     {
+      
     }
 }

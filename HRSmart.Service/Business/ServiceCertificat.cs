@@ -17,5 +17,7 @@ namespace HRSmart.Service.Business
         public ServiceCertificat() : base(itw)
         {
         }
+
+       
     }
 }

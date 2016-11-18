@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HRSmart.Domain.Entities
 {
@@ -25,5 +26,7 @@ namespace HRSmart.Domain.Entities
         public virtual ICollection<postulation> postulations { get; set; }
         public virtual ICollection<userskill> userskills { get; set; }
         public virtual ICollection<userbuisness> userbuisnesses { get; set; }
+       [NotMapped]
+        public string role { get; set; }
     }
 }
