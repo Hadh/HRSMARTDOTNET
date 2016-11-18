@@ -40,10 +40,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Business\IServiceAssessment.cs" />
     <Compile Include="Business\IServiceBusiness.cs" />
+    <Compile Include="Business\IServiceCertificat.cs" />
     <Compile Include="Business\IServiceQuestion.cs" />
     <Compile Include="Business\IServiceQuiz.cs" />
+    <Compile Include="Business\ServiceAssessment.cs" />
     <Compile Include="Business\ServiceBusiness.cs" />
+    <Compile Include="Business\ServiceCertificat.cs" />
     <Compile Include="Business\ServiceQuestion.cs" />
     <Compile Include="Business\ServiceQuiz.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

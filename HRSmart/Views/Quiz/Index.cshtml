@@ -1,6 +1,9 @@
 ﻿@{
     ViewBag.Title = "Quiz - Analytics";
     Layout = "~/Views/Shared/templateLayout.cshtml";
+    Random rnd = new Random();
+    var colors = ViewBag.colors;
+
 }
 
 <div class="block-header">
@@ -8,13 +11,43 @@
 </div>
 
 <div class="card">
-    @foreach (KeyValuePair<string, int> question in ViewBag.Data)
-    {
-        <p>
-            question.Key<br/>
-            question.Value
-        </p> 
-    }
+    
+    <div class="container" >
+        <div class="row" style="padding-bottom: 20px">
+            <h4>Most used Questions</h4>
+            @foreach (KeyValuePair<string, int> question in ViewBag.MostUsedQuestions)
+            {
+                string color = colors[rnd.Next(0, 6)];
+                <div class="col-sm-5" style="margin: 10px 20px">
+                    <h5>@question.Key</h5>
+                    <div class="progress progress-striped active">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="@question.Value" aria-valuemin="0" aria-valuemax="100" style="width: @question.Value%; background-color: @color"></div>
+                    </div>
+                </div>
+            }
+
+        </div>
+        <div class="row" style="padding-bottom: 20px;">
+            <h4>Average results per quiz</h4>
+            @foreach (KeyValuePair<string, int> assessment in ViewBag.AverageQuizResults)
+            {
+                string color = colors[rnd.Next(0, 6)];
+                <div class="col-sm-3">
+                    <div class="epc-item" style="background-color: @color">
+                        <div class="easy-pie main-pie" data-percent="@assessment.Value">
+                            <div class="percent">@assessment.Value</div>
+                            <div class="pie-title">@assessment.Key</div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    
+    
+    
+        
+
 </div>
 
 
