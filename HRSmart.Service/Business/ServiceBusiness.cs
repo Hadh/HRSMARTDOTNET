@@ -17,5 +17,15 @@ namespace HRSmart.Service.Business
         {
 
         }
+
+        public List<buisness> getInvalidatedBusiness()
+        {
+            List<buisness> result = new List<buisness>();
+           foreach(buisness b in utw.getRepository<buisness>().GetMany())
+            {
+                // b.
+            }
+            return result;
+        }
     }
 }

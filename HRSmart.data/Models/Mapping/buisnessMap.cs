@@ -19,6 +19,7 @@ namespace HRSmart.data.Models.Mapping
             this.ToTable("buisness", "mysqlpi");
             this.Property(t => t.id).HasColumnName("id");
             this.Property(t => t.name).HasColumnName("name");
+            this.Property(t => t.valid).HasColumnName("valid");
         }
     }
 }

@@ -23,7 +23,7 @@ namespace HRSmart.data.Models.Mapping
 
             // Relationships
             this.HasOptional(t => t.buisness)
-                .WithMany(t => t.stages)
+                .WithMany(t => t.Stages)
                 .HasForeignKey(d => d.buisness_id);
 
         }
