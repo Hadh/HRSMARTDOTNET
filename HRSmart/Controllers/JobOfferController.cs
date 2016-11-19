@@ -1,5 +1,6 @@
 ﻿using HRSmart.Domain.Entities;
 using HRSmart.Service.Business;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace HRSmart.Controllers
     public class JobOfferController : Controller
     {
         private ServiceJobOffer jobService = new ServiceJobOffer();
+        private ServiceJobSkill jobskillService = new ServiceJobSkill();
         // GET: JobOffer
         public ActionResult Index()
         {
@@ -47,11 +49,15 @@ namespace HRSmart.Controllers
         {
             ViewBag.available = jobService.getPercentageAvailableJobs();
             ViewBag.popular = jobService.getMostPopularJobs(5);
+            ViewBag.total = jobService.GetMany().ToList().Count;
+            ViewBag.skill = jobskillService.getMostPopular().name;
             return View();
         }
-        public ActionResult JobAnalytics()
+        public ActionResult Analytics(int id)
         {
-            ViewBag.available = jobService.getPercentageAvailableJobs();
+            joboffer job = jobService.getAverageJobSalary(new joboffer());
+            ViewBag.job = job;
+            ViewBag.numPostulations = jobService.getNumberOfPostulations(job.id);
             return View();
         }
     }

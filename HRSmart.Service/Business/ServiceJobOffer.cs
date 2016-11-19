@@ -7,6 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using System;
+using System.Net;
+using System.IO;
+using Newtonsoft.Json;
+
 namespace HRSmart.Service.Business
 {
     public class ServiceJobOffer : MyServiceGeneric<joboffer>, IServiceJobOffer
@@ -56,7 +61,7 @@ namespace HRSmart.Service.Business
             List<joboffer> jobs = this.GetMany().ToList();
             List<joboffer> ret = new List<joboffer>();
             int counter = 0;
-            while (counter < number)
+            while (counter < number && jobs.Count > 0)
             {
                 joboffer max = jobs.ElementAt(0);
                 for (int i = 0; i < jobs.Count - (counter); i++)
@@ -65,15 +70,48 @@ namespace HRSmart.Service.Business
                     if (this.getNumberOfPostulations(jobs.ElementAt(i).id) > this.getNumberOfPostulations(max.id))
                     {
                         max = jobs.ElementAt(i);
-
                     }
                 }
                 ret.Add(max);
                 jobs.Remove(max);
                 counter++;
-                if (counter == jobs.Count) { break; }
+                if (counter == jobs.Count + 1) { break; }
             }
             return ret;
+        }
+        public joboffer getAverageJobSalary(joboffer job)
+        {
+
+            string sURL;
+            sURL = "http://localhost:18080/HRSmart-web/rest/job/1";
+            WebRequest wrGETURL;
+            wrGETURL = WebRequest.Create(sURL);
+
+            WebProxy myProxy = new WebProxy("myproxy", 80);
+            myProxy.BypassProxyOnLocal = true;
+
+            wrGETURL.Proxy = WebProxy.GetDefaultProxy();
+
+
+            Stream objStream;
+            objStream = wrGETURL.GetResponse().GetResponseStream();
+
+            StreamReader objReader = new StreamReader(objStream);
+            string sLine = "";
+            int i = 0;
+            string final = "";
+            while (sLine != null)
+            {
+                i++;
+                sLine = objReader.ReadLine();
+                if (sLine != null)
+                {
+                    final = final + sLine;
+                    
+                }
+            }
+            return JsonConvert.DeserializeObject<joboffer>(final);
+
         }
     }
 }

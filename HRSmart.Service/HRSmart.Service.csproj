@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\HRSmart\Bin\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -43,13 +46,27 @@
     <Compile Include="Business\IServiceAssessment.cs" />
     <Compile Include="Business\IServiceBusiness.cs" />
     <Compile Include="Business\IServiceCertificat.cs" />
+    <Compile Include="Business\IServiceJobOffer.cs" />
+    <Compile Include="Business\IServiceJobSkill.cs" />
     <Compile Include="Business\IServiceQuestion.cs" />
     <Compile Include="Business\IServiceQuiz.cs" />
+    <Compile Include="Business\IServiceRewards.cs" />
+    <Compile Include="Business\IServiceSkill.cs" />
+    <Compile Include="Business\IServiceUser.cs" />
+    <Compile Include="Business\IServiceUserBuisness.cs" />
+    <Compile Include="Business\IServiceUserSkill.cs" />
     <Compile Include="Business\ServiceAssessment.cs" />
     <Compile Include="Business\ServiceBusiness.cs" />
     <Compile Include="Business\ServiceCertificat.cs" />
+    <Compile Include="Business\ServiceJobOffer.cs" />
+    <Compile Include="Business\ServiceJobSkill.cs" />
     <Compile Include="Business\ServiceQuestion.cs" />
     <Compile Include="Business\ServiceQuiz.cs" />
+    <Compile Include="Business\ServiceRewards.cs" />
+    <Compile Include="Business\ServiceSkill.cs" />
+    <Compile Include="Business\ServiceUser.cs" />
+    <Compile Include="Business\ServiceUserBuisness.cs" />
+    <Compile Include="Business\ServiceUserSkill.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
