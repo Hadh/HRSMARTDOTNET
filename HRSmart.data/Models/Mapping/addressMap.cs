@@ -25,7 +25,7 @@ namespace HRSmart.data.Models.Mapping
 
             // Relationships
             this.HasOptional(t => t.buisness)
-                .WithMany(t => t.addresses)
+                .WithMany(t => t.Address)
                 .HasForeignKey(d => d.buisness_id);
 
         }
