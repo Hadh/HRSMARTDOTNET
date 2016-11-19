@@ -31,7 +31,7 @@ namespace HRSmart.data.Models.Mapping
 
             // Relationships
             this.HasRequired(t => t.buisness)
-                .WithMany(t => t.userbuisnesses)
+                .WithMany(t => t.Users)
                 .HasForeignKey(d => d.buisness_id);
             this.HasRequired(t => t.user)
                 .WithMany(t => t.userbuisnesses)

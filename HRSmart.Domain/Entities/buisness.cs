@@ -7,17 +7,18 @@ namespace HRSmart.Domain.Entities
     {
         public buisness()
         {
-            this.addresses = new List<address>();
-            this.stages = new List<stage>();
-            this.userbuisnesses = new List<userbuisness>();
-            this.joboffers = new List<joboffer>();
+            this.Address = new List<address>();
+            this.Stages = new List<stage>();
+            this.Users = new List<userbuisness>();
+            this.Jobs = new List<joboffer>();
         }
 
         public int id { get; set; }
         public string name { get; set; }
-        public virtual ICollection<address> addresses { get; set; }
-        public virtual ICollection<stage> stages { get; set; }
-        public virtual ICollection<userbuisness> userbuisnesses { get; set; }
-        public virtual ICollection<joboffer> joboffers { get; set; }
+        public bool valid { get; set; }
+        public virtual ICollection<address> Address { get; set; }
+        public virtual ICollection<stage> Stages { get; set; }
+        public virtual ICollection<userbuisness> Users { get; set; }
+        public virtual ICollection<joboffer> Jobs { get; set; }
     }
 }
