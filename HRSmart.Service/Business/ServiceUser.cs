@@ -67,14 +67,26 @@ namespace HRSmart.Service.Business
             foreach (var u in users)
             {
                     nbskills+= u.userskills.ToList().Count;
+                
             }
             return nbskills/users.Count;
         }
 
         public List<int> getUserPerMonth()
         {
-            List<user> users = this.GetMany().ToList();
-            return null;
+            List<int> li = new List<int>();
+           
+            for (int i = 0; i < 5; i++)
+            {
+                DateTime mon1 = DateTime.Now.Subtract((DateTime.Now.AddMonths(i) - DateTime.Now));
+                DateTime mon2 = DateTime.Now.Subtract((DateTime.Now.AddMonths(i+1) - DateTime.Now));
+                li.Add(this.GetMany(x =>
+                (DateTime.Compare(x.dateInscription, mon1 ) < 0)
+                && (DateTime.Compare(x.dateInscription, mon2) >= 0)
+                )
+                .ToList().Count);
+            }
+            return li;
         }
     }
 }
