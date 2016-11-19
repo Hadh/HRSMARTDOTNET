@@ -22,6 +22,14 @@ namespace HRSmart.Domain.Entities
         public string login { get; set; }
         public string numTel { get; set; }
         public string password { get; set; }
+        public string facebook { get; set; }
+        public string twitter { get; set; }
+        public string skype { get; set; }
+        public string sexe { get; set; }
+        public DateTime dateInscription { get; set; }
+        public bool active { get; set; }
+        public string linkedin { get; set; }
+        public string image { get; set; }
         public virtual ICollection<notification> notifications { get; set; }
         public virtual ICollection<postulation> postulations { get; set; }
         public virtual ICollection<userskill> userskills { get; set; }

@@ -11,6 +11,7 @@ using System;
 using System.Net;
 using System.IO;
 using Newtonsoft.Json;
+using System.Collections.Specialized;
 
 namespace HRSmart.Service.Business
 {
@@ -79,38 +80,51 @@ namespace HRSmart.Service.Business
             }
             return ret;
         }
-        public joboffer getAverageJobSalary(joboffer job)
+        public float getAverageJobSalary(joboffer job)
         {
 
-            string sURL;
-            sURL = "http://localhost:18080/HRSmart-web/rest/job/1";
-            WebRequest wrGETURL;
-            wrGETURL = WebRequest.Create(sURL);
-
-            WebProxy myProxy = new WebProxy("myproxy", 80);
-            myProxy.BypassProxyOnLocal = true;
-
-            wrGETURL.Proxy = WebProxy.GetDefaultProxy();
-
-
-            Stream objStream;
-            objStream = wrGETURL.GetResponse().GetResponseStream();
-
-            StreamReader objReader = new StreamReader(objStream);
-            string sLine = "";
-            int i = 0;
-            string final = "";
-            while (sLine != null)
+            using (var client = new WebClient())
             {
-                i++;
-                sLine = objReader.ReadLine();
-                if (sLine != null)
-                {
-                    final = final + sLine;
-                    
-                }
+                var values = new NameValueCollection();
+                values["job"] = JsonConvert.SerializeObject(job);
+
+                var response = client.UploadValues("http://localhost:18080/HRSmart-web/rest/job/salary", values);
+
+                var responseString = Encoding.Default.GetString(response);
+
+                return float.Parse(responseString);
             }
-            return JsonConvert.DeserializeObject<joboffer>(final);
+
+            //string sURL;
+            //sURL = "http://localhost:18080/HRSmart-web/rest/job/1";
+            //WebRequest wrGETURL;
+            //wrGETURL = WebRequest.Create(sURL);
+
+            //WebProxy myProxy = new WebProxy("myproxy", 80);
+            //myProxy.BypassProxyOnLocal = true;
+
+            //wrGETURL.Proxy = WebProxy.GetDefaultProxy();
+
+
+            //Stream objStream;
+            //objStream = wrGETURL.GetResponse().GetResponseStream();
+
+            //StreamReader objReader = new StreamReader(objStream);
+            //string sLine = "";
+            //int i = 0;
+            //string final = "";
+            //while (sLine != null)
+            //{
+            //    i++;
+            //    sLine = objReader.ReadLine();
+            //    if (sLine != null)
+            //    {
+            //        final = final + sLine;
+
+            //    }
+            //}
+
+
 
         }
     }

@@ -14,6 +14,6 @@ namespace HRSmart.Service.Business
         float getPercentageAvailableJobs();
         int getNumberOfPostulations(int id);
         List<joboffer> getMostPopularJobs(int number);
-        joboffer getAverageJobSalary(joboffer job);
+        float getAverageJobSalary(joboffer job);
     }
 }
