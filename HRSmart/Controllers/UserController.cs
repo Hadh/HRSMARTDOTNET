@@ -66,70 +66,17 @@ namespace HRSmart.Controllers
             return View();
         }
 
-        // GET: User/Create
-        public ActionResult Create()
+        // GET: User/Statistics
+        public ActionResult Statistics()
         {
+            ViewBag.userEmployed = serviceuser.getNumberOfEmployedUsers();
+            ViewBag.employeecount = serviceuser.GetMany().ToList().Count;
+            ViewBag.skillsuser = serviceuser.getAverageNumberOfSkillsUser();
             return View();
         }
 
-        // POST: User/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: User/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: User/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: User/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: User/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
+      
+        
+        
     }
 }

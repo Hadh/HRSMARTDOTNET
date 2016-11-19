@@ -1,0 +1,137 @@
+﻿@{
+    Layout = "~/Views/Shared/templateLayout.cshtml";
+}
+
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+    google.charts.load('current', { 'packages': ['corechart'] });
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Employed', @ViewBag.userEmployed],
+          ['Unemployed', (@ViewBag.employeecount - @ViewBag.userEmployed)]
+        ]);
+
+        var options = {
+            title: 'Employed And Unemployed users'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+    }
+</script>
+
+<div class="block-header">
+    <h1>
+      User Statistics 
+    </h1>
+</div>
+<div class="col-md-7 col-lg-7">
+    <div id="piechart"></div>
+</div>
+
+
+<div class="mini-charts">
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="mini-charts-item bgm-blue">
+                <div class="clearfix">
+                    <div class="chart stats-bar"></div>
+                    <div class="count">
+                        <small>Number of Employed users</small>
+                        <h2>@ViewBag.userEmployed</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="col-sm-3">
+                <div class="mini-charts-item bgm-red">
+                    <div class="clearfix">
+                        <div class="chart stats-bar"></div>
+                        <div class="count">
+                            <small>Number of Unemployed users</small>
+                            <h2>@(ViewBag.employeecount-ViewBag.userEmployed)</h2>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+</div>
+
+<!--Qverage skills per user-->
+<script type="text/javascript">
+    google.charts.load('current', { 'packages': ['corechart'] });
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Skills', @ViewBag.skillsuser]
+
+        ]);
+
+        var options = {
+            title: 'Average of skills per users'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart2'));
+
+        chart.draw(data, options);
+    }
+</script>
+
+
+<div class="col-md-7 col-lg-7">
+    <div id="piechart2"></div>
+</div>
+
+
+<div class="col-sm-3" style="margin-top:75px;">
+    <div class="mini-charts-item bgm-lightgreen">
+        <div class="clearfix">
+            <div class="chart stats-line"></div>
+            <div class="count">
+                <small>Average of Skills</small>
+                <h2>@ViewBag.skillsuser skill/user</h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-lg-10 col-md-10">
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Sales', 'Expenses'],
+          ['2013',  1000,      400],
+          ['2014',  1170,      460],
+          ['2015',  660,       1120],
+          ['2016',  1030,      540]
+        ]);
+
+        var options = {
+          title: 'Company Performance',
+          hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
+          vAxis: {minValue: 0}
+        };
+
+        var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+</script>
+ 
+
+    <div id="chart_div" style="width: 100%; height: 500px;"></div>
+</div>
+
