@@ -65,34 +65,19 @@
 </div>
 
 <!--Qverage skills per user-->
-<script type="text/javascript">
-    google.charts.load('current', { 'packages': ['corechart'] });
-    google.charts.setOnLoadCallback(drawChart);
-    function drawChart() {
 
-        var data = google.visualization.arrayToDataTable([
-          ['Task', 'Hours per Day'],
-          ['Skills', @ViewBag.skillsuser]
-
-        ]);
-
-        var options = {
-            title: 'Average of skills per users'
-        };
-
-        var chart = new google.visualization.PieChart(document.getElementById('piechart2'));
-
-        chart.draw(data, options);
-    }
-</script>
 
 
 <div class="col-md-7 col-lg-7">
-    <div id="piechart2"></div>
+    <div class="block-header">
+        <h1>
+            Average of skills per user
+        </h1>
+    </div>
 </div>
 
 
-<div class="col-sm-3" style="margin-top:75px;">
+<div class="col-sm-3">
     <div class="mini-charts-item bgm-lightgreen">
         <div class="clearfix">
             <div class="chart stats-line"></div>
@@ -113,15 +98,16 @@
 
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['Year', 'Sales', 'Expenses'],
-          ['2013',  1000,      400],
-          ['2014',  1170,      460],
-          ['2015',  660,       1120],
-          ['2016',  1030,      540]
+          ['Months', 'Users'],
+          ['-4 Month',  @ViewBag.numberuserMonth[4]],
+          ['-3 Month',  @ViewBag.numberuserMonth[3]],
+          ['-2 Month',  @ViewBag.numberuserMonth[2]],
+          ['-1 Month',  @ViewBag.numberuserMonth[1]],
+          ['This Month', @ViewBag.numberuserMonth[0]]
         ]);
 
         var options = {
-          title: 'Company Performance',
+          title: 'Evolution of users',
           hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
           vAxis: {minValue: 0}
         };

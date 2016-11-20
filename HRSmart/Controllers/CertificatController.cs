@@ -27,7 +27,7 @@ namespace HRSmart.Controllers
 
                 
                 ICollection<userskill> c = certif.userskills;
-                dico[certif.name] = c.Count()*100/1; // total count of users
+                dico[certif.name] = c.Count()*100/1; // /total count of users
                 
 
             
