@@ -80,19 +80,28 @@ namespace HRSmart.Service.Business
             }
             return ret;
         }
-        public float getAverageJobSalary(joboffer job)
+        public string getAverageJobSalary(joboffer job)
         {
 
             using (var client = new WebClient())
             {
-                var values = new NameValueCollection();
-                values["job"] = JsonConvert.SerializeObject(job);
 
-                var response = client.UploadValues("http://localhost:18080/HRSmart-web/rest/job/salary", values);
+                string values = "{\"jobSkills\":[";
+                foreach(jobskill s in job.jobskills)
+                {
+                    values = values + "{\"id\":{\"skill\":"+s.skill.id+ ",\"jobOffer\":"+job.id+"}},";
+                }
+                values = values.Remove(values.Length - 1);
+                values = values + "]}";
 
-                var responseString = Encoding.Default.GetString(response);
 
-                return float.Parse(responseString);
+                Console.WriteLine(values);
+                client.Headers.Add(HttpRequestHeader.ContentType, "application/json");
+                var response = client.UploadString("http://localhost:18080/HRSmart-web/rest/job/salary", values);
+
+                var responseString = response;
+
+                return responseString;
             }
 
             //string sURL;
