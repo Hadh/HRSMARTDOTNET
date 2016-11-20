@@ -58,11 +58,11 @@ namespace HRSmart
             //   appId: "",
             //   appSecret: "");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "78592962384-bcg51a1fql48lfvqnalac7486e5rhsja.apps.googleusercontent.com",
+                ClientSecret = "GlmM8z_6BaJpZgS0hjEKJz3-"
+            });
         }
     }
 }

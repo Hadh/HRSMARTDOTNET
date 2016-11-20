@@ -55,8 +55,8 @@ namespace HRSmart.Controllers
         }
         public ActionResult Analytics(int id)
         {
-            
-            ViewBag.averageSalary = jobService.getAverageJobSalary(jobService.GetById(id));
+            joboffer job = jobService.GetById(id);
+            ViewBag.averageSalary = jobService.getAverageJobSalary(job);
             return View();
         }
     }
