@@ -76,7 +76,7 @@ namespace HRSmart.Service.Business
         {
             List<int> li = new List<int>();
            
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 6; i++)
             {
                 DateTime mon1 = DateTime.Now.Subtract((DateTime.Now.AddMonths(i) - DateTime.Now));
                 DateTime mon2 = DateTime.Now.Subtract((DateTime.Now.AddMonths(i+1) - DateTime.Now));
