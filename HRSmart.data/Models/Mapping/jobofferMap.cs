@@ -17,7 +17,7 @@ namespace HRSmart.data.Models.Mapping
 
             this.Property(t => t.title)
                 .HasMaxLength(255);
-
+            this.Property(t => t.creationDate);
             // Table & Column Mappings
             this.ToTable("joboffer", "mysqlpi");
             this.Property(t => t.id).HasColumnName("id");
@@ -26,10 +26,11 @@ namespace HRSmart.data.Models.Mapping
             this.Property(t => t.salary).HasColumnName("salary");
             this.Property(t => t.title).HasColumnName("title");
             this.Property(t => t.buisness_id).HasColumnName("buisness_id");
+            this.Property(t => t.creationDate).HasColumnName("creationDate");
 
             // Relationships
             this.HasOptional(t => t.buisness)
-                .WithMany(t => t.joboffers)
+                .WithMany(t => t.Jobs)
                 .HasForeignKey(d => d.buisness_id);
 
         }

@@ -1,0 +1,123 @@
+﻿@{
+    Layout = "~/Views/Shared/templateLayout.cshtml";
+}
+
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+    google.charts.load('current', { 'packages': ['corechart'] });
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Employed', @ViewBag.userEmployed],
+          ['Unemployed', (@ViewBag.employeecount - @ViewBag.userEmployed)]
+        ]);
+
+        var options = {
+            title: 'Employed And Unemployed users'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+    }
+</script>
+
+<div class="block-header">
+    <h1>
+      User Statistics 
+    </h1>
+</div>
+<div class="col-md-7 col-lg-7">
+    <div id="piechart"></div>
+</div>
+
+
+<div class="mini-charts">
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="mini-charts-item bgm-blue">
+                <div class="clearfix">
+                    <div class="chart stats-bar"></div>
+                    <div class="count">
+                        <small>Number of Employed users</small>
+                        <h2>@ViewBag.userEmployed</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="col-sm-3">
+                <div class="mini-charts-item bgm-red">
+                    <div class="clearfix">
+                        <div class="chart stats-bar"></div>
+                        <div class="count">
+                            <small>Number of Unemployed users</small>
+                            <h2>@(ViewBag.employeecount-ViewBag.userEmployed)</h2>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+</div>
+
+<!--Qverage skills per user-->
+
+
+
+<div class="col-md-7 col-lg-7">
+    <div class="block-header">
+        <h1>
+            Average of skills per user
+        </h1>
+    </div>
+</div>
+
+
+<div class="col-sm-3">
+    <div class="mini-charts-item bgm-lightgreen">
+        <div class="clearfix">
+            <div class="chart stats-line"></div>
+            <div class="count">
+                <small>Average of Skills</small>
+                <h2>@ViewBag.skillsuser skill/user</h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-lg-10 col-md-10">
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Months', 'Users'],
+          ['-4 Month',  @ViewBag.numberuserMonth[4]],
+          ['-3 Month',  @ViewBag.numberuserMonth[3]],
+          ['-2 Month',  @ViewBag.numberuserMonth[2]],
+          ['-1 Month',  @ViewBag.numberuserMonth[1]],
+          ['This Month', @ViewBag.numberuserMonth[0]]
+        ]);
+
+        var options = {
+          title: 'Evolution of users',
+          hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
+          vAxis: {minValue: 0}
+        };
+
+        var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+</script>
+ 
+
+    <div id="chart_div" style="width: 100%; height: 500px;"></div>
+</div>
+

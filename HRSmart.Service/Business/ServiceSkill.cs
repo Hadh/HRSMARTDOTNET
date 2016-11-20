@@ -9,15 +9,13 @@ using HRSmart.ServicePattern;
 
 namespace HRSmart.Service.Business
 {
-    public class ServiceCertificat : MyServiceGeneric<certificat>, IServiceCertificat
+    public class ServiceSkill : MyServiceGeneric<skill>, IServiceSkill
     {
         private static IDataBaseFactory dbfac = new DataBaseFactory();
         private static IUnitOfWork itw = new UnitOfWork(dbfac);
 
-        public ServiceCertificat() : base(itw)
+        public ServiceSkill() : base(itw)
         {
         }
-
-       
     }
 }

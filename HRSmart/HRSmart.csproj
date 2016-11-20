@@ -191,8 +191,10 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CertificatController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JobOfferController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\QuizController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -281,6 +283,12 @@
     <Content Include="Views\Certificat\Delete.cshtml" />
     <Content Include="Views\Certificat\Edit.cshtml" />
     <Content Include="Views\Certificat\Index.cshtml" />
+    <Content Include="Views\JobOffer\Details.cshtml" />
+    <Content Include="Views\JobOffer\Index.cshtml" />
+    <Content Include="Views\JobOffer\JobsAnalytics.cshtml" />
+    <Content Include="Views\User\Details.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\JobOffer\Analytics.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

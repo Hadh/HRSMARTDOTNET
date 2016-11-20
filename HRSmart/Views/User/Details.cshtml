@@ -1,0 +1,152 @@
+﻿@{
+    Layout = "~/Views/Shared/templateLayout.cshtml";
+}
+<div class="block-header">
+    <h2>
+        @ViewBag.user.firstName @ViewBag.user.lastName
+    </h2>
+</div>
+<div class="card" id="profile-main">
+    <div class="pm-overview c-overflow">
+
+        <div class="pmo-pic" style="margin-top:30px;">
+            <div class="p-relative">
+
+                <div class="dropdown pmop-message">
+                    <a data-toggle="dropdown" href="#" class="btn bgm-white btn-float z-depth-1">
+                        <i class="zmdi zmdi-comment-text-alt"></i>
+                    </a>
+
+                    <div class="dropdown-menu">
+                        <textarea placeholder="Write something..."></textarea>
+
+                        <button class="btn bgm-green btn-float">
+                            <i class="zmdi zmdi-mail-send"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="pmo-stat">
+                <h2 class="m-0 c-white">Details</h2>
+
+            </div>
+        </div>
+
+        <div class="pmo-block pmo-contact hidden-xs">
+            <h2>Contact</h2>
+
+            <ul>
+                <li><i class="zmdi zmdi-phone"></i>@ViewBag.user.numTel</li>
+                <li><i class="zmdi zmdi-email"></i>@ViewBag.user.login </li>
+
+                <li>
+                    <i class="zmdi zmdi-pin"></i>
+                    <address class="m-b-0 ng-binding">
+                        @ViewBag.user.adresse<br>
+                        <br>
+
+                    </address>
+                </li>
+            </ul>
+        </div>
+
+
+
+    </div>
+    <div class="pm-body clearfix">
+
+
+
+
+        <!----------------------------------Basic informations--------------------------------------->
+
+        <div class="pmb-block">
+            <div class="pmbb-header">
+                <h2><i class="zmdi zmdi-account m-r-10"></i> Basic Information</h2>
+
+            </div>
+            <div class="pmbb-body p-l-30">
+                <div class="pmbb-view">
+                    <dl class="dl-horizontal">
+                        <dt>First Name</dt>
+                        <dd> @ViewBag.user.firstName</dd>
+                    </dl>
+                    <dl class="dl-horizontal">
+                        <dt>Last Name</dt>
+                        <dd>  @ViewBag.user.lastName</dd>
+                    </dl>
+                    <dl class="dl-horizontal">
+                        <dt>Age</dt>
+                        <dd>@ViewBag.user.age</dd>
+                    </dl>
+
+
+                </div>
+
+
+            </div>
+        </div>
+
+        <!--------------------------Skills------------------>
+        <div class="pmb-block">
+            <div class="pmbb-header">
+                <h2><i class="zmdi zmdi-star-outline"></i> Skills Informations</h2>
+
+            </div>
+            <div class="pmbb-body p-l-30">
+                <div class="pmbb-view">
+
+                    @foreach (var us in @ViewBag.user.userskills)
+                    {
+                        <dl class="dl-horizontal">
+                            <dt>Skill : @us.skill.name </dt>
+
+                            <dd><b> Level : @us.level/10</b></dd>
+
+                        </dl>
+                    }
+
+
+
+                </div>
+
+
+            </div>
+        </div>
+
+        <!--Certificats-->
+
+
+        <div class="pmb-block">
+            <div class="pmbb-header">
+                <h2><i class="zmdi zmdi-file-text"></i> Certificats Informations</h2>
+
+            </div>
+            <div class="pmbb-body p-l-30">
+                <div class="pmbb-view">
+
+
+                    @foreach (var us in @ViewBag.user.userskills)
+            {
+                        foreach (var c in us.certificats)
+                        {
+                            <dl class="dl-horizontal">
+                                <dt><b> certificats : @c.name</b></dt>
+                            </dl>
+                        }
+                    }
+
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+
+    </div>
+</div>

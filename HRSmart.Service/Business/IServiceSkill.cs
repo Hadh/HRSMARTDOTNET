@@ -8,8 +8,7 @@ using System.Threading.Tasks;
 
 namespace HRSmart.Service.Business
 {
-    public interface IServiceBusiness : IMyServiceGeneric<buisness>
+    public interface IServiceSkill : IMyServiceGeneric<skill>
     {
-        List<buisness> getInvalidatedBusiness();
     }
 }
