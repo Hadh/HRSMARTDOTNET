@@ -227,10 +227,12 @@
     <Compile Include="Utility\ApiAiUtility.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Applied Physics A.jpg" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\me.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -310,6 +312,9 @@
     <Content Include="Views\User\Details.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\JobOffer\Analytics.cshtml" />
+    <Content Include="Views\User\Statistics.cshtml" />
+    <Content Include="Views\User\IndexHR.cshtml" />
+    <Content Include="Views\User\StatisticHR.cshtml" />
     <Content Include="Views\Skill\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -362,7 +367,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>3893</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:3893/</IISUrl>
+          <IISUrl>https://localhost:44371/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

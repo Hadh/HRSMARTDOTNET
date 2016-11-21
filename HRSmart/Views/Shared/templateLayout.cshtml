@@ -1,4 +1,6 @@
-﻿    <!DOCTYPE html>
+﻿@using Microsoft.AspNet.Identity
+
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -285,7 +287,7 @@
             </div>
 
             <div class="sp-info">
-                Malinda Hollaway
+                @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
 
                 <i class="zmdi zmdi-caret-down"></i>
             </div>
@@ -301,15 +303,21 @@
             <li>
                 <a href="#"><i class="zmdi zmdi-settings"></i> Settings</a>
             </li>
+
             <li>
-                <a href="#"><i class="zmdi zmdi-time-restore"></i> Logout</a>
+                <a href="@Url.Action("LogOff", "Account")"> <span>Logout</span></a>
             </li>
+                
+            
         </ul>
     </div>
 
     <ul class="main-menu">
         <li>
             <a href="@Url.Action("Index","Quiz")"><i class="zmdi zmdi-lamp"></i> Quiz</a>
+        </li>
+        <li>
+            <a href="@Url.Action("Index","Certificat")"><i class="zmdi zmdi-collection-bookmark"></i> Certificats</a>
         </li>
         <li class="active">
             <a href="index-2.html"><i class="zmdi zmdi-home"></i> Home</a>
@@ -556,4 +564,11 @@
     <script src="@Url.Content("~/Content/template/")vendors/bower_components/sweetalert2/dist/sweetalert2.min.js"></script>
 <script src="@Url.Content("~/Content/template/")vendors/bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
 <script src="@Url.Content("~/Content/template/")js/app.min.js"></script>    
+
+<script src="@Url.Content("~/Content/template/")vendors/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript">
+            $(document).ready(function() {
+                $('#data-table-basic').DataTable();
+            } );
+</script>
 </html>

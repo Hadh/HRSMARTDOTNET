@@ -16,6 +16,7 @@ namespace HRSmart.Controllers
         IServiceUserBuisness serviceuserbuisness = new ServiceUserBuisness();
         IServiceUserSkill serviceuserskill = new ServiceUserSkill();
         IServiceCertificat servicecertificat = new ServiceCertificat();
+        IServiceBusiness servicebuisness = new ServiceBusiness();
         // GET: User
         public ActionResult Index()
         {
@@ -112,7 +113,20 @@ namespace HRSmart.Controllers
             return RedirectToAction("Index", "User");
         }
 
+        public ActionResult IndexHR()
+        {
+            ViewBag.users = serviceuserbuisness.getMyEmployees();
+            
+            return View();
+        }
 
+        public ActionResult StatisticHR()
+        {
+            ViewBag.popularskill = serviceuserbuisness.getMostPopularSkill(serviceuserbuisness.getMyEmployees());
+            ViewBag.averagesalary = serviceuserbuisness.getAverageSalaries();
+            ViewBag.averageage = serviceuserbuisness.getAverageAgeOfEmployess();
+            return View();
+        }
 
     }
 }
