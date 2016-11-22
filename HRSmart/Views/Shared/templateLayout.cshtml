@@ -1,5 +1,4 @@
-﻿@using HRSmart.Models
-@using Microsoft.AspNet.Identity
+﻿@using Microsoft.AspNet.Identity
 
 <!DOCTYPE html>
 
@@ -288,8 +287,7 @@
             </div>
 
             <div class="sp-info">
-
-                Hello
+                @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
 
                 <i class="zmdi zmdi-caret-down"></i>
             </div>
@@ -325,7 +323,7 @@
             <a href="index-2.html"><i class="zmdi zmdi-home"></i> Home</a>
         </li>
         <li class="sub-menu">
-            <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-chart"></i> Dashboards </a>
+            <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-chart"></i> Dashboards</a>
 
             <ul>
                 <li><a href="dashboards/analytics.html">Analytics</a></li>
@@ -568,9 +566,11 @@
 <script src="@Url.Content("~/Content/template/")js/app.min.js"></script>    
 
 <script src="@Url.Content("~/Content/template/")vendors/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+@RenderSection("scripts", required: false)
 <script type="text/javascript">
             $(document).ready(function() {
                 $('#data-table-basic').DataTable();
+               
             } );
 </script>
 </html>

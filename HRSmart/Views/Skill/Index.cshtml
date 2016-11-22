@@ -1,39 +1,212 @@
-﻿@{
+﻿@using HRSmart.Domain.Entities
+@{
     ViewBag.Title = "Skills - Index";
     Layout = "~/Views/Shared/templateLayout.cshtml";
     Random rnd = new Random();
     var colors = ViewBag.colors;
+   
+    
+   
 
 }
+
 
 <div class="block-header">
     <h2>Skills</h2>
 </div>
-<div class="card">
 
+
+    
     <div class="container">
-       
-        <div class="row" style="padding-bottom: 20px;">
-           
-            @foreach (KeyValuePair<string, int> skill in ViewBag.skilldic)
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Trending Skills in job offers</h2>
+
+                        <ul class="actions">
+                            <li class="dropdown action-show">
+                                <a href="#" data-toggle="dropdown">
+                                    <i class="zmdi zmdi-more-vert"></i>
+                                </a>
+
+                                <div class="dropdown-menu pull-right">
+                                    <p class="p-20">
+                                        You can put anything here
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="card-body card-padding">
+                        <div id="pie-chart1" class="flot-chart-pie"></div>
+                        <div class="flc-pie1 hidden-xs"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Trending skills in users applications</h2>
+
+                        <ul class="actions">
+                            <li class="dropdown action-show">
+                                <a href="#" data-toggle="dropdown">
+                                    <i class="zmdi zmdi-more-vert"></i>
+                                </a>
+
+                                <div class="dropdown-menu pull-right">
+                                    <p class="p-20">
+                                        You can put anything here
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="card-body card-padding">
+                        <div id="pie-chart2" class="flot-chart-pie"></div>
+                        <div class="flc-pie2 hidden-xs"></div>
+                    </div>
+                </div>
+            </div>
+
+            
+
+        </div>
+        <div class="row">
+            @foreach (KeyValuePair<skill,decimal> pair in @ViewBag.skillfloats)
             {
-                string color = colors[rnd.Next(0, 6)];
-                <div class="col-sm-3">
-                    <div class="epc-item" style="background-color: @color">
-                        <div class="easy-pie main-pie" data-percent="@skill.Value">
-                            <div class="percent">@skill.Value</div>
-                            <div class="pie-title">@skill.Key</div>
+                string color = colors[rnd.Next(0, 10)];
+                <div class="col-sm-3" id="epic-parent">
+                    <div class="epc-item" style="background-color: @color;cursor: pointer;">
+                        <div class="easy-pie main-pie" data-percent="@pair.Value">
+                            <div class="percent">@pair.Value</div>
+                            <div class="pie-title">@pair.Key.name</div>
                         </div>
                     </div>
                 </div>
             }
         </div>
-        
     </div>
 
+@section scripts
+{
+<script src="@Url.Content("~/Content/template/")vendors/bower_components/flot/jquery.flot.js"></script>
+<script src="@Url.Content("~/Content/template/")vendors/bower_components/flot/jquery.flot.resize.js"></script>
+<script src="@Url.Content("~/Content/template/")vendors/bower_components/flot/jquery.flot.pie.js"></script>
+<script src="@Url.Content("~/Content/template/")vendors/bower_components/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
+<script src="@Url.Content("~/Content/template/")vendors/bower_components/flot-orderBars/js/jquery.flot.orderBars.js"></script>
+<script src="@Url.Content("~/Content/template/")vendors/bower_components/flot.curvedlines/curvedLines.js"></script>
+<script src="@Url.Content("~/Content/template/")vendors/bower_components/flot-orderBars/js/jquery.flot.orderBars.js"></script>
+
+    
+    
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            $('.epc-item').click(function () {
+                $(this).parent().toggleClass('col-sm-3').toggleClass('col-sm-6');     
+            });
 
 
+         var pieData1 = [];
+         var pieData2 = [];
 
+         @foreach (KeyValuePair<skill, int> skilld in @ViewBag.skilldictjob)
+         {
+             string color = colors[rnd.Next(0, 10)];
+        <text>  
+         pieData1.push({ data: @skilld.Value, color: '@color', label: '@skilld.Key.name'}) 
+         </text>
+         }
+          @foreach (KeyValuePair<skill, int> skilld in @ViewBag.skilldictuser)
+         {
+             string color = colors[rnd.Next(0, 10)];
+             <text>  
+              pieData2.push({ data: @skilld.Value, color: '@color', label: '@skilld.Key.name'}) 
+              </text>
+         }
 
-</div>
+    
+         /* Pie Chart */
+    
+         if($('#pie-chart1')[0]){
+             $.plot('#pie-chart1', pieData1, {
+                 series: {
+                     pie: {
+                         show: true,
+                         stroke: { 
+                             width: 2,
+                         },
+                     },
+                 },
+                 legend: {
+                     container: '.flc-pie1',
+                     backgroundOpacity: 0.5,
+                     noColumns: 0,
+                     backgroundColor: "white",
+                     lineWidth: 0
+                 },
+                 grid: {
+                     hoverable: true,
+                     clickable: true
+                 },
+                 tooltip: true,
+                 tooltipOpts: {
+                     content: "%p.0%, %s", // show percentages, rounding to 2 decimal places
+                     shifts: {
+                         x: 20,
+                         y: 0
+                     },
+                     defaultTheme: false,
+                     cssClass: 'flot-tooltip'
+                 }
+            
+             });
+         }
+         if($('#pie-chart2')[0]){
+             $.plot('#pie-chart2', pieData2, {
+                 series: {
+                     pie: {
+                         show: true,
+                         stroke: { 
+                             width: 2,
+                         },
+                     },
+                 },
+                 legend: {
+                     container: '.flc-pie2',
+                     backgroundOpacity: 0.5,
+                     noColumns: 0,
+                     backgroundColor: "white",
+                     lineWidth: 0
+                 },
+                 grid: {
+                     hoverable: true,
+                     clickable: true
+                 },
+                 tooltip: true,
+                 tooltipOpts: {
+                     content: "%p.0%, %s", // show percentages, rounding to 2 decimal places
+                     shifts: {
+                         x: 20,
+                         y: 0
+                     },
+                     defaultTheme: false,
+                     cssClass: 'flot-tooltip'
+                 }
+            
+             });
+         }
+     })
+</script>
+
+       
+}
+ 
+    
+
 
