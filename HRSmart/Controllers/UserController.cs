@@ -61,7 +61,9 @@ namespace HRSmart.Controllers
             return View();
         }
 
-        // GET: User/Details/5
+
+
+        // GET: User/Details/
         public ActionResult Details(int id)
         {
             ViewBag.user = serviceuser.GetById(id);
@@ -162,6 +164,7 @@ namespace HRSmart.Controllers
             ViewBag.popularskill = serviceuserbuisness.getMostPopularSkill(serviceuserbuisness.getMyEmployees());
             ViewBag.averagesalary = serviceuserbuisness.getAverageSalaries();
             ViewBag.averageage = serviceuserbuisness.getAverageAgeOfEmployess();
+            ViewBag.bestEmployee = serviceuserbuisness.getBestEmployee();
             return View();
         }
 
