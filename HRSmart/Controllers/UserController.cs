@@ -1,5 +1,8 @@
 ﻿using HRSmart.Domain.Entities;
+using HRSmart.Models;
 using HRSmart.Service.Business;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,45 +23,57 @@ namespace HRSmart.Controllers
         // GET: User
         public ActionResult Index()
         {
-            List<user> users = serviceuser.GetMany().ToList();
+            ApplicationUser user =
+                System.Web.HttpContext.Current.GetOwinContext()
+                    .GetUserManager<ApplicationUserManager>()
+                    .FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
 
-            foreach (var u in users)
+            if (user.Roles.ElementAt(0).RoleId == "1")
             {
-                Console.WriteLine(u.firstName);
-                bool verif = false;
-                foreach (var ub in serviceuserbuisness.findByuser(u.id))
+                List<user> users = serviceuser.GetMany().ToList();
+
+                foreach (var u in users)
                 {
-                    Console.WriteLine(ub.user_id);
-                    if (ub.role == "HR")
+                    Console.WriteLine(u.firstName);
+                    bool verif = false;
+                    foreach (var ub in serviceuserbuisness.findByuser(u.id))
                     {
-                        u.role = "Chief Human Ressource";
-                        verif = true;
-                        break;
+                        Console.WriteLine(ub.user_id);
+                        if (ub.role == "HR")
+                        {
+                            u.role = "Chief Human Ressource";
+                            verif = true;
+                            break;
+
+                        }
+                        if (ub.role == "RM")
+                        {
+                            u.role = "Recruiter Manager";
+                            verif = true;
+                            break;
+                        }
+                        if (ub.role == "EMP")
+                        {
+                            u.role = "Employee";
+                            verif = true;
+                            break;
+                        }
 
                     }
-                    if (ub.role == "RM")
+                    if (verif == false)
                     {
-                        u.role = "Recruiter Manager";
-                        verif = true;
-                        break;
-                    }
-                    if (ub.role == "EMP")
-                    {
-                        u.role = "Employee";
-                        verif = true;
-                        break;
+                        u.role = "Non Employed";
                     }
 
                 }
-                if (verif == false)
-                {
-                    u.role = "Non Employed";
-                }
 
+                ViewBag.users = users;
+                return View();
             }
-
-            ViewBag.users = users;
-            return View();
+            else
+            {
+                return RedirectToAction("IndexHR");
+            }
         }
 
 
@@ -73,12 +88,24 @@ namespace HRSmart.Controllers
         // GET: User/Statistics
         public ActionResult Statistics()
         {
-            ViewBag.userEmployed = serviceuser.getNumberOfEmployedUsers();
+            ApplicationUser user =
+                   System.Web.HttpContext.Current.GetOwinContext()
+                       .GetUserManager<ApplicationUserManager>()
+                       .FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
+
+            if (user.Roles.ElementAt(0).RoleId == "1")
+            {
+                ViewBag.userEmployed = serviceuser.getNumberOfEmployedUsers();
             ViewBag.employeecount = serviceuser.GetMany().ToList().Count;
             ViewBag.skillsuser = serviceuser.getAverageNumberOfSkillsUser();
             ViewBag.numberuserMonth = serviceuser.getUserPerMonth();
             ViewBag.numberHR = serviceuser.getNumberofHR();
             return View();
+            }
+            else
+            {
+                return RedirectToAction("StatisticHR");
+            }
         }
 
         public ActionResult Ban(int id)
@@ -154,14 +181,24 @@ namespace HRSmart.Controllers
         }
         public ActionResult IndexHR()
         {
-            ViewBag.users = serviceuserbuisness.getMyEmployees();
+            ApplicationUser user =
+    System.Web.HttpContext.Current.GetOwinContext()
+        .GetUserManager<ApplicationUserManager>()
+        .FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
+
+            ViewBag.users = serviceuserbuisness.getMyEmployees(user.userId);
             
             return View();
         }
 
         public ActionResult StatisticHR()
         {
-            ViewBag.popularskill = serviceuserbuisness.getMostPopularSkill(serviceuserbuisness.getMyEmployees());
+            ApplicationUser user =
+                System.Web.HttpContext.Current.GetOwinContext()
+                    .GetUserManager<ApplicationUserManager>()
+                    .FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
+
+            ViewBag.popularskill = serviceuserbuisness.getMostPopularSkill(serviceuserbuisness.getMyEmployees(user.userId));
             ViewBag.averagesalary = serviceuserbuisness.getAverageSalaries();
             ViewBag.averageage = serviceuserbuisness.getAverageAgeOfEmployess();
             ViewBag.bestEmployee = serviceuserbuisness.getBestEmployee();
