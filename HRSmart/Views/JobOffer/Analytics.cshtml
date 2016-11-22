@@ -25,6 +25,10 @@
                     <dd>@ViewBag.job.salary</dd>
                 </dl>
                 <dl class="dl-horizontal">
+                    <dt>Estimated Salary</dt>
+                    <dd>@ViewBag.estimation</dd>
+                </dl>
+                <dl class="dl-horizontal">
                     <dt>Number Of Postulations</dt>
                     <dd>@ViewBag.numPostulations</dd>
                 </dl>
@@ -64,29 +68,6 @@
 
                 </dl>
             </div>
-        </div>
-    </div>
-    <div class="pmb-block">
-        <div class="pmbb-header">
-            <h2>Business Contact Information</h2>
-        </div>
-        <div class="pmbb-body p-l-30">
-            <div class="pmbb-view">
-                <dl class="dl-horizontal">
-                    <dt>Title</dt>
-                    <dd>@ViewBag.job.buisness.name</dd>
-                </dl>
-                <dl class="dl-horizontal">
-                    <dt>Adresses</dt>
-                    <dd>
-                        @foreach (var a in @ViewBag.job.buisness.addresses)
-                        {
-                            @a.localisation<br />
-                        }
-                    </dd>
-                </dl>
-            </div>
-
         </div>
     </div>
     <a href='@Url.Action("Analytics/"+@ViewBag.job.id,"JobOffer")' class="btn bgm-blue waves-effect">Analytics</a>
