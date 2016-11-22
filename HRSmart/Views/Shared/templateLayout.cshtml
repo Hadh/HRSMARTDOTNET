@@ -34,7 +34,9 @@
                 </li>
 
                 <li class="hi-logo hidden-xs">
-                    <a href="index-2.html">HR-SMART</a>
+                    <a href="#">   HR-SMART   </a>
+
+                    
                 </li>
 
                 <li class="pull-right">
@@ -63,7 +65,8 @@
                 <div class="s-profile">
                     <a href="#" data-ma-action="profile-menu-toggle">
                         <div class="sp-pic">
-                            <img src="img/demo/profile-pics/1.jpg" alt="">
+                            <img src="images/logo.png" alt="Sample Photo" />
+                           
                         </div>
 
                         <div class="sp-info">
@@ -73,6 +76,15 @@
                             <i class="zmdi zmdi-caret-down"></i>
                         </div>
                     </a>
+                    <ul class="main-menu">
+
+
+                        <li>
+                            <a href="@Url.Action("LogOff", "Account")"> <span>Logout</span></a>
+                        </li>
+
+
+                    </ul>
 
                 </div>
 
@@ -108,8 +120,13 @@
                     <li>
                         <a href="@Url.Action("Index","Certificat")"><i class="zmdi zmdi-collection-bookmark"></i> Certificats</a>
                     </li>
-                    <li class="active">
-                        <a href="index-2.html"><i class="zmdi zmdi-book-image"></i> Skills</a>
+                    <li class="sub-menu">
+                        <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-assignment"></i> Skills</a>
+
+                        <ul>
+                            <li><a href="@Url.Action("Index","Skill")">Dashboard</a></li>
+                            <li><a href="@Url.Action("Add","Skill")">Add Skills</a></li>
+                        </ul>
                     </li>
 
 
@@ -243,6 +260,7 @@
 <script src="@Url.Content("~/Content/template/")js/app.min.js"></script>
 
 <script src="@Url.Content("~/Content/template/")vendors/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+@RenderSection("scripts",required:false)
 <script type="text/javascript">
             $(document).ready(function() {
                 $('#data-table-basic').DataTable();

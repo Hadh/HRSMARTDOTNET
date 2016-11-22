@@ -254,6 +254,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\logo.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -339,6 +340,7 @@
     <Content Include="Views\Business\DesBusiness.cshtml" />
     <Content Include="Views\Business\Details.cshtml" />
     <Content Include="Views\Business\Statistique.cshtml" />
+    <Content Include="Views\Skill\Add.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

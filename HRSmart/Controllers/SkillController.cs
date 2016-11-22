@@ -39,5 +39,10 @@ namespace HRSmart.Controllers
             return View();
         }
 
+        public ActionResult Add()
+        {
+            return View();
+        }
+
     }
 }
