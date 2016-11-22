@@ -35,7 +35,7 @@ namespace HRSmart.Service.Business
         {
             ServiceUser serviceuser = new ServiceUser();
            
-            user user = serviceuser.GetById(2);
+            user user = serviceuser.GetById(3);
             buisness buisness = this.GetMany(ub => (ub.user.id == user.id) && (ub.role == "HR")).ToList().ElementAt(0).buisness;
             List<userbuisness> userbuisness = this.findBybuisness(buisness.id).ToList();
 
@@ -46,13 +46,13 @@ namespace HRSmart.Service.Business
                 {
                     ub.user.role = "Recruiter Manager";
                     users.Add(ub.user);
-                    break;
+                
                 }
                 if (ub.role == "EMP")
                 {
                     ub.user.role = "Employee";
                     users.Add(ub.user);
-                    break;
+                   
                 }
 
 

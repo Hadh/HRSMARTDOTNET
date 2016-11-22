@@ -61,7 +61,9 @@ namespace HRSmart.Controllers
             return View();
         }
 
-        // GET: User/Details/5
+
+
+        // GET: User/Details/
         public ActionResult Details(int id)
         {
             ViewBag.user = serviceuser.GetById(id);
