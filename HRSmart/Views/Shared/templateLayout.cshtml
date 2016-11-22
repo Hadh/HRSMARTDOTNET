@@ -7,7 +7,7 @@
     
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="@Url.Content("~/Content/template/")vendors/bower_components/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet">
     <link href="@Url.Content("~/Content/template/")vendors/bower_components/animate.css/animate.min.css" rel="stylesheet">
     <link href="@Url.Content("~/Content/template/")vendors/bower_components/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet">
@@ -315,11 +315,11 @@
             <a href="index-2.html"><i class="zmdi zmdi-home"></i> Home</a>
         </li>
         <li class="sub-menu">
-            <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-chart"></i> Dashboards</a>
+            <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-chart"></i> Business</a>
 
             <ul>
-                <li><a href="dashboards/analytics.html">Analytics</a></li>
-                <li><a href="dashboards/school.html">School</a></li>
+                <li><a href="@Url.Action("Index","Business")">All Business</a></li>
+                <li><a href="@Url.Action("Statistique","Business")">Statistics</a></li>
             </ul>
         </li>
         <li class="sub-menu">
