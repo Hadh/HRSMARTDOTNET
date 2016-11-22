@@ -114,6 +114,9 @@
     <Compile Include="Business\ServiceUser.cs" />
     <Compile Include="Business\ServiceUserBuisness.cs" />
     <Compile Include="Business\ServiceUserSkill.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -132,15 +135,62 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="bin\Debug\HRSmart.Service.dll.config" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Debug\HRSmart.Service.csprojResolveAssemblyReference.cache" />
     <None Include="packages.config" />
     <None Include="Scripts\jquery-2.1.4.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\Debug\Antlr3.Runtime.dll" />
+    <Content Include="bin\Debug\Antlr3.Runtime.pdb" />
+    <Content Include="bin\Debug\EntityFramework.dll" />
+    <Content Include="bin\Debug\EntityFramework.xml" />
+    <Content Include="bin\Debug\fr\System.Web.Helpers.resources.dll" />
+    <Content Include="bin\Debug\fr\System.Web.Mvc.resources.dll" />
+    <Content Include="bin\Debug\fr\System.Web.Razor.resources.dll" />
+    <Content Include="bin\Debug\fr\System.Web.WebPages.Deployment.resources.dll" />
+    <Content Include="bin\Debug\fr\System.Web.WebPages.Razor.resources.dll" />
+    <Content Include="bin\Debug\fr\System.Web.WebPages.resources.dll" />
+    <Content Include="bin\Debug\HRSmart.data.dll" />
+    <Content Include="bin\Debug\HRSmart.data.pdb" />
+    <Content Include="bin\Debug\HRSmart.Domain.dll" />
+    <Content Include="bin\Debug\HRSmart.Domain.pdb" />
+    <Content Include="bin\Debug\HRSmart.Service.dll" />
+    <Content Include="bin\Debug\HRSmart.Service.pdb" />
+    <Content Include="bin\Debug\HRSmart.ServicePattern.dll" />
+    <Content Include="bin\Debug\HRSmart.ServicePattern.pdb" />
+    <Content Include="bin\Debug\Jmelosegui.Mvc.GoogleMap.dll" />
+    <Content Include="bin\Debug\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="bin\Debug\Newtonsoft.Json.dll" />
+    <Content Include="bin\Debug\Newtonsoft.Json.xml" />
+    <Content Include="bin\Debug\System.Web.Helpers.dll" />
+    <Content Include="bin\Debug\System.Web.Helpers.xml" />
+    <Content Include="bin\Debug\System.Web.Mvc.dll" />
+    <Content Include="bin\Debug\System.Web.Mvc.xml" />
+    <Content Include="bin\Debug\System.Web.Optimization.dll" />
+    <Content Include="bin\Debug\System.Web.Optimization.xml" />
+    <Content Include="bin\Debug\System.Web.Razor.dll" />
+    <Content Include="bin\Debug\System.Web.Razor.xml" />
+    <Content Include="bin\Debug\System.Web.WebPages.Deployment.dll" />
+    <Content Include="bin\Debug\System.Web.WebPages.Deployment.xml" />
+    <Content Include="bin\Debug\System.Web.WebPages.dll" />
+    <Content Include="bin\Debug\System.Web.WebPages.Razor.dll" />
+    <Content Include="bin\Debug\System.Web.WebPages.Razor.xml" />
+    <Content Include="bin\Debug\System.Web.WebPages.xml" />
+    <Content Include="bin\Debug\WebGrease.dll" />
+    <Content Include="obj\Debug\HRSmart.Service.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\HRSmart.Service.dll" />
+    <Content Include="obj\Debug\HRSmart.Service.pdb" />
     <Content Include="Scripts\jmelosegui.googlemap.js" />
     <Content Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />
     <Content Include="Scripts\markerclusterer.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Release\" />
+    <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
