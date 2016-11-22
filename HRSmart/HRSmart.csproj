@@ -209,6 +209,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\BusinessController.cs" />
     <Compile Include="Controllers\CertificatController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JobOfferController.cs" />
@@ -317,6 +319,11 @@
     <Content Include="Views\User\StatisticHR.cshtml" />
     <Content Include="Views\Skill\Index.cshtml" />
     <Content Include="Views\Business\Index.cshtml" />
+    <Content Include="Views\Business\Address.cshtml" />
+    <Content Include="Views\Business\Delete.cshtml" />
+    <Content Include="Views\Business\DesBusiness.cshtml" />
+    <Content Include="Views\Business\Details.cshtml" />
+    <Content Include="Views\Business\Statistique.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
