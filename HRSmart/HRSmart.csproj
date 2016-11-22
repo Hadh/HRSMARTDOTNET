@@ -221,6 +221,19 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611161204191_t.cs" />
+    <Compile Include="Migrations\201611161204191_t.Designer.cs">
+      <DependentUpon>201611161204191_t.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611171701579_userAspModif.cs" />
+    <Compile Include="Migrations\201611171701579_userAspModif.Designer.cs">
+      <DependentUpon>201611171701579_userAspModif.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611221613236_ff.cs" />
+    <Compile Include="Migrations\201611221613236_ff.Designer.cs">
+      <DependentUpon>201611221613236_ff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -334,6 +347,7 @@
     <Folder Include="Content\template\js\" />
     <Folder Include="Content\template\media\" />
     <Folder Include="Content\template\vendors\" />
+    <Folder Include="Views\ApplicationBase\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -356,6 +370,17 @@
       <Project>{0c7459af-4f33-44af-9b8d-9c198af3c22f}</Project>
       <Name>HRSmart.Service</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201611161204191_t.resx">
+      <DependentUpon>201611161204191_t.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611171701579_userAspModif.resx">
+      <DependentUpon>201611171701579_userAspModif.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611221613236_ff.resx">
+      <DependentUpon>201611221613236_ff.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
