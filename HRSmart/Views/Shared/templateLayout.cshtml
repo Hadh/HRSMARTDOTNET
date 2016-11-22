@@ -19,6 +19,7 @@
     
     <link href="@Url.Content("~/Content/template/")css/app_1.min.css" rel="stylesheet">
     <link href="@Url.Content("~/Content/template/")css/app_2.min.css" rel="stylesheet">
+    <link href="@Url.Content("~/Content/")SkillStyle.css" rel="stylesheet">
 </head>
 <body>
 <div>
@@ -320,8 +321,7 @@
             <a href="@Url.Action("Index","Certificat")"><i class="zmdi zmdi-collection-bookmark"></i> Certificats</a>
         </li>
         <li class="active">
-            <a href="index-2.html"><i class="zmdi zmdi-home"></i> Home</a>
-        </li>
+            <a href="@Url.Action("Index","Skill")"><i class="zmdi zmdi-collection-bookmark"></i> Skills</a>        </li>
         <li class="sub-menu">
             <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-chart"></i> Dashboards</a>
 
@@ -566,9 +566,11 @@
 <script src="@Url.Content("~/Content/template/")js/app.min.js"></script>    
 
 <script src="@Url.Content("~/Content/template/")vendors/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+@RenderSection("scripts", required: false)
 <script type="text/javascript">
             $(document).ready(function() {
                 $('#data-table-basic').DataTable();
+               
             } );
 </script>
 </html>

@@ -20,25 +20,21 @@ namespace HRSmart.Controllers
         public ActionResult Index()
         {
             List<skill> skills = serviceSkill.GetMany().ToList();
-            ViewBag.skills = skills;
-            ArrayList colorList = new ArrayList { "#2196F3", "#FF9800", "#4CAF50", "#F44336", "#9C27B0", "#3F51B5", "#CDDC39" };
-            ViewBag.colors = colorList;
-
-            IDictionary<String, int> skillDictionary = new Dictionary<string, int>();
-
-            List<int> freq = new List<int>() { 5, 4, 7, 8 };
-            // skills.ForEach(delegate(skill skill) { skillDictionary.Keys.Add(skill.name); });
-            // 
-            // freq.ForEach(delegate(int f) {skillDictionary.Values.Add(f);} );
-            //ViewBag.skilldic = skillDictionary;
-
+            IDictionary<skill,decimal> skillFloats = new Dictionary<skill, decimal>();
             foreach (skill skill in skills)
             {
-                
+                decimal rank = serviceSkill.getSkillPopularity(skill.id);
+                skillFloats.Add(skill,rank);
             }
-            
-            
+            ViewBag.skillfloats = skillFloats;
+           
+            ArrayList colorList = new ArrayList { "#2196F3", "#FF9800", "#4CAF50", "#F44336", "#9C27B0", "#3F51B5", "#CDDC39" , "#3949AB", "#FF8F00", "#651FFF", "#d32f2f" };
+            ViewBag.colors = colorList;
 
+            IDictionary<skill, int> skillDictionaryjob = serviceSkill.getPopularByJob();
+            ViewBag.skilldictjob = skillDictionaryjob;
+            IDictionary<skill, int> skillDictionaryuser = serviceSkill.getPopularByUser();
+            ViewBag.skilldictuser = skillDictionaryuser;
 
             return View();
         }
