@@ -52,6 +52,22 @@
       <HintPath>..\packages\ApiAiSDK.1.6.4\lib\net35\ApiAiSDK.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="LemmaSharp, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sparc.TagCloud.0.0.1\lib\net40\LemmaSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="LemmaSharpPrebuilt, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sparc.TagCloud.0.0.1\lib\net40\LemmaSharpPrebuilt.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="LemmaSharpPrebuiltCompact, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sparc.TagCloud.0.0.1\lib\net40\LemmaSharpPrebuiltCompact.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Lzma#, Version=4.12.3884.11200, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sparc.TagCloud.0.0.1\lib\net40\Lzma#.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.2\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -75,6 +91,10 @@
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Sparc.TagCloud, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sparc.TagCloud.0.0.1\lib\net40\Sparc.TagCloud.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -189,13 +209,31 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\BusinessController.cs" />
     <Compile Include="Controllers\CertificatController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JobOfferController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\QuizController.cs" />
+    <Compile Include="Controllers\SkillController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611161204191_t.cs" />
+    <Compile Include="Migrations\201611161204191_t.Designer.cs">
+      <DependentUpon>201611161204191_t.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611171701579_userAspModif.cs" />
+    <Compile Include="Migrations\201611171701579_userAspModif.Designer.cs">
+      <DependentUpon>201611171701579_userAspModif.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611221613236_ff.cs" />
+    <Compile Include="Migrations\201611221613236_ff.Designer.cs">
+      <DependentUpon>201611221613236_ff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -204,14 +242,19 @@
     <Compile Include="Utility\ApiAiUtility.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Applied Physics A.jpg" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\me.jpg" />
+    <Content Include="Content\SkillChart.js" />
+    <Content Include="Content\SkillStyle.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\logo.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -281,6 +324,23 @@
     <Content Include="Views\Certificat\Delete.cshtml" />
     <Content Include="Views\Certificat\Edit.cshtml" />
     <Content Include="Views\Certificat\Index.cshtml" />
+    <Content Include="Views\JobOffer\Details.cshtml" />
+    <Content Include="Views\JobOffer\Index.cshtml" />
+    <Content Include="Views\JobOffer\JobsAnalytics.cshtml" />
+    <Content Include="Views\User\Details.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\JobOffer\Analytics.cshtml" />
+    <Content Include="Views\User\Statistics.cshtml" />
+    <Content Include="Views\User\IndexHR.cshtml" />
+    <Content Include="Views\User\StatisticHR.cshtml" />
+    <Content Include="Views\Skill\Index.cshtml" />
+    <Content Include="Views\Business\Index.cshtml" />
+    <Content Include="Views\Business\Address.cshtml" />
+    <Content Include="Views\Business\Delete.cshtml" />
+    <Content Include="Views\Business\DesBusiness.cshtml" />
+    <Content Include="Views\Business\Details.cshtml" />
+    <Content Include="Views\Business\Statistique.cshtml" />
+    <Content Include="Views\Skill\Add.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -291,6 +351,7 @@
     <Folder Include="Content\template\js\" />
     <Folder Include="Content\template\media\" />
     <Folder Include="Content\template\vendors\" />
+    <Folder Include="Views\ApplicationBase\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -314,6 +375,17 @@
       <Name>HRSmart.Service</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201611161204191_t.resx">
+      <DependentUpon>201611161204191_t.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611171701579_userAspModif.resx">
+      <DependentUpon>201611171701579_userAspModif.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611221613236_ff.resx">
+      <DependentUpon>201611221613236_ff.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -332,7 +404,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>3893</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:3893/</IISUrl>
+          <IISUrl>https://localhost:44371/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

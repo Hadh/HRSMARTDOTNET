@@ -15,43 +15,53 @@
                 <div class="login-content">
                     <!-- Login -->
 
-                <div class="lc-block toggled" id="l-login">
-                    <div class="lcb-form">
-                        <div class="input-group m-b-20">
-                            <span class="input-group-addon"><i class="zmdi zmdi-account"></i></span>
-                            <div class="fg-line">
-                                @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                    <div class="lc-block toggled" id="l-login">
+                        <div class="lcb-form">
+                            <div class="input-group m-b-20">
+                                <span class="input-group-addon"><i class="zmdi zmdi-account"></i></span>
+                                <div class="fg-line">
+                                    @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+                                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="input-group m-b-20">
-                            <span class="input-group-addon"><i class="zmdi zmdi-male"></i></span>
-                            <div class="fg-line">
-                                @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-                                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                            <div class="input-group m-b-20">
+                                <span class="input-group-addon"><i class="zmdi zmdi-male"></i></span>
+                                <div class="fg-line">
+                                    @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                                    @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
 
+                                </div>
                             </div>
-                        </div>
-                      
-                            <input type="submit" value="Log in" class="btn btn-default" />
+                      <br/><br/>
+
+                            <button type="submit" class="btn btn-warning btn-icon waves-effect waves-circle waves-float">
+                                <i class="zmdi zmdi-arrow-forward"></i>
+                            </button>
+                            <div class="col-md-1">
+                                <section id="socialLoginForm">
+                                    @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+                                </section>
+                            </div>
                  
                         </div>
-                    <div class="lcb-navigation">
-                        <a href="@Url.Action("Register", "Account")" data-ma-block="#l-register"><i class="zmdi zmdi-plus"></i> <span>Register</span></a>
+                        <div class="lcb-navigation">
+                            <a href="@Url.Action("Register", "Account")" data-ma-block="#l-register"><i class="zmdi zmdi-plus"></i> <span>Register</span></a>
 
 
                            
                  
-                        <a href="#" data-ma-action="login-switch" data-ma-block="#l-forget-password"><i>?</i> <span>Forgot Password</span></a>
+                            <a href="#" data-ma-action="login-switch" data-ma-block="#l-forget-password"><i>?</i> <span>Forgot Password</span></a>
+                        </div>
+                    
+
+                    
+
                     </div>
                     
 
-                    
-
-                </div>
                 </div>
                    
 

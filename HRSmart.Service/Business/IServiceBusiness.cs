@@ -10,5 +10,10 @@ namespace HRSmart.Service.Business
 {
     public interface IServiceBusiness : IMyServiceGeneric<buisness>
     {
+        List<buisness> getInvalidatedBusiness();
+        float getSumSalary(int id);
+        user getBestEmpByBusiness(int id);
+        Dictionary<int, int> getNbPostulationsPerMonth();
+        Dictionary<int, int> getNbUsersPerMonth();
     }
 }

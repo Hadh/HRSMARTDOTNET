@@ -15,6 +15,7 @@ namespace HRSmart.Domain.Entities
         public bool active { get; set; }
         public string description { get; set; }
         public int salary { get; set; }
+        public DateTime creationDate { get; set; }
         public string title { get; set; }
         public Nullable<int> buisness_id { get; set; }
         public virtual buisness buisness { get; set; }

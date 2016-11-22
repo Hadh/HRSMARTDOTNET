@@ -5,10 +5,13 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using HRSmart.Domain.Entities;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using HRSmart.Models;
+using HRSmart.Service.Business;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace HRSmart.Controllers
 {
@@ -22,7 +25,7 @@ namespace HRSmart.Controllers
         {
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
@@ -34,9 +37,9 @@ namespace HRSmart.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -70,6 +73,9 @@ namespace HRSmart.Controllers
         {
             if (!ModelState.IsValid)
             {
+                //var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+                //ViewBag.firstName = user.FirstName;
+
                 return View(model);
             }
 
@@ -120,7 +126,7 @@ namespace HRSmart.Controllers
             // If a user enters incorrect codes for a specified amount of time then the user account 
             // will be locked out for a specified amount of time. 
             // You can configure the account lockout settings in IdentityConfig
-            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent:  model.RememberMe, rememberBrowser: model.RememberBrowser);
+            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent: model.RememberMe, rememberBrowser: model.RememberBrowser);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -151,16 +157,35 @@ namespace HRSmart.Controllers
         {
             if (ModelState.IsValid)
             {
+                IServiceUser serviceUser = new ServiceUser();
+                user newUser = new user();
                 var user = new ApplicationUser
                 {
-                    UserName = model.Email, Email = model.Email,FirstName = model.FirstName,
-                    LastName = model.LastName, Adresse = "Hee"
+                    UserName = model.Email,
+                    Email = model.Email,
+                    FirstName = model.FirstName,
+                    LastName = model.LastName,
+                    Adresse = "Hee"
+                  
                 };
+                newUser.firstName = model.FirstName;
+                newUser.lastName = model.LastName;
+                newUser.password = model.Password;
+                newUser.login = model.Email;
+                newUser.dateInscription = DateTime.Now;
+                serviceUser.Add(newUser);
+                serviceUser.commit();
+                user.userId = newUser.id;
+
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+
+                    //var insertedUser = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+                    UserManager.AddToRole(user.Id, "Admin");
+
+
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
@@ -391,12 +416,11 @@ namespace HRSmart.Controllers
 
         //
         // POST: /Account/LogOff
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+        [HttpGet]
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Login", "Account");
         }
 
         //

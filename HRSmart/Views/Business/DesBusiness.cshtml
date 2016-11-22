@@ -1,0 +1,57 @@
+﻿@model IEnumerable<HRSmart.Domain.Entities.buisness>
+
+@{
+    ViewBag.Title = "DesBusiness";
+    Layout = "~/Views/Shared/templateLayout.cshtml";
+}
+
+<h2>Disactivated Business</h2>
+<div class="card">
+    <div class="card-header">
+        <h2>
+            Basic Example
+            <small>
+                It's just that simple. Turn your simple table into a sophisticated data table and
+                offer your users a nice experience and great features without any effort.
+            </small>
+        </h2>
+    </div>
+
+    <div class="table-responsive">
+        <table id="data-table-basic" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name Business</th>
+                    <th>Valide</th>
+                    <th>Details</th>
+                    <th>Active</th>
+                    <th>Remove</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>Id</th>
+                    <th>Name Business</th>
+                    <th>Valide</th>
+                    <th>Details</th>
+                    <th>Active</th>
+                    <th>Remove</th>
+                </tr>
+            </tfoot>
+            <tbody>
+                @foreach (var b in @ViewBag.buisness)
+                {
+                    <tr>
+                        <td>@b.id</td>
+                        <td>@b.name</td>
+                        <td>@b.valid</td>
+                        <td>@Html.ActionLink("Details", "Details", new { id = b.id })</td>
+                        <td><a class="btn-floating btn-medium waves-effect waves-light" style="color : green;" href="@Url.Action("Active/"+@b.id,"Business")"><i class="material-icons">check</i></a></td>
+                        <td><a class="btn-floating btn-medium waves-effect waves-light" style="color : red;" href="@Url.Action("Delete/"+@b.id,"Business")"><i class="material-icons">block</i></a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,89 @@
+﻿@{
+    Layout = "~/Views/Shared/templateLayout.cshtml";
+}
+
+<div class="col-md-10 col-lg-10">
+    <div class="block-header">
+        <h1>
+            Most Popular skill amoung the employees
+        </h1>
+    </div>
+</div>
+<div class="col-md-12">
+    <div class="mini-charts-item bgm-lightgreen">
+        <div class="clearfix">
+            <div class="chart stats-line"></div>
+            <div class="count">
+                <small>The popular skill is about:</small>
+                <h2>@ViewBag.popularskill.name </h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="col-md-10 col-lg-10">
+    <div class="block-header">
+        <h1>
+            Average of salaries amoung the employees
+        </h1>
+    </div>
+</div>
+<div class="col-md-12">
+    <div class="mini-charts-item bgm-orange">
+        <div class="clearfix">
+            <div class="chart stats-line"></div>
+            <div class="count">
+                <small>The average is about:</small>
+                <h2>@ViewBag.averagesalary </h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="col-md-10 col-lg-10">
+    <div class="block-header">
+        <h1>
+            Average of ages amoung the employees
+        </h1>
+    </div>
+</div>
+<div class="col-md-12">
+    <div class="mini-charts-item bgm-red">
+        <div class="clearfix">
+            <div class="chart stats-line"></div>
+            <div class="count">
+                <small>The average is about:</small>
+                <h2>@ViewBag.averageage </h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="col-md-10 col-lg-10">
+    <div class="block-header">
+        <h1>
+            The Best Employee in my Business
+        </h1>
+    </div>
+</div>
+<div class="col-md-12">
+    <div class="mini-charts-item bgm-cyan">
+        <div class="clearfix">
+            <div class="chart stats-line"></div>
+            <div class="count">
+                <small>The best employee is :</small>
+                <h2>@ViewBag.bestEmployee.firstName @ViewBag.bestEmployee.lastName  </h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="col-sm-3">
+    <a href='@Url.Action("IndexHR","User")' class="btn bgm-blue waves-effect">Back</a>
+</div>

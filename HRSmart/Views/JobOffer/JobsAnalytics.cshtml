@@ -1,0 +1,73 @@
+﻿@{
+    Layout = "~/Views/Shared/templateLayout.cshtml";
+}
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+    google.charts.load('current', { 'packages': ['corechart'] });
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Available Jobs', @ViewBag.available],
+          ['Non Available Jobs', (100-@ViewBag.available)]
+        ]);
+
+        var options = {
+            title: 'Active Jobs'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+    }
+</script>
+
+<div class="col-md-6 col-lg-6">
+    <div id="piechart"></div>
+</div>
+
+<div class="col-md-6 col-lg-6">
+    <div class="card">
+        <div class="card-header">
+            <h2>Popular Jobs<small>A List of the most Applied For Jobs</small></h2>
+        </div>
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Job</th>
+                        <th class="text-right">Salary</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var j in @ViewBag.popular)
+                    {
+                        <tr>
+                            <td>@j.title</td>
+                            <td class="text-right">@j.salary</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+
+<div class="visitors-stats clearfix">
+    <div class="col-xs-6">
+        <div class="visitors-stats-item">
+            <strong>@ViewBag.total</strong>
+            <small>Is the number of jobs on the platform</small>
+        </div>
+    </div>
+    <div class="col-xs-6">
+        <div class="visitors-stats-item">
+            <strong>@ViewBag.skill</strong>
+            <small>Is the most requested skills in jobs</small>
+        </div>
+    </div>
+</div>
