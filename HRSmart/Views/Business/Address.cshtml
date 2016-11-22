@@ -1,0 +1,40 @@
+﻿@using Jmelosegui.Mvc.GoogleMap;
+@{
+    ViewBag.Title = "Address";
+    Layout = "~/Views/Shared/templateLayout.cshtml";
+}
+
+<h2>Address</h2>
+<div>
+    <div class="row">
+        <div id="map" style="height: 400px; " class="col-md-12">
+            
+        </div>
+    </div>
+</div>
+<br/>
+<div>
+    <a href="@Url.Action("Details/"+@ViewBag.idBusiness, "Business")" style="float: right; color : white; background-color : cornflowerblue;" class="waves-effect waves-light btn">Return To Details</a>
+</div>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAMPz6CN7kRsofMp2791dHnzHTxoV1UU7k">
+</script>
+<script>
+    function init_map() {
+
+        var var_mapoptions = {
+            center: { lat: 36.436365, lng: 10.39461 },
+            zoom: 7
+        };
+
+        var var_map = new google.maps.Map(document.getElementById("map"),
+                   var_mapoptions);
+
+        @foreach (var entry in ViewBag.addresses)
+            {
+                @:var marker = new google.maps.Marker({ position: { lat: Math.floor(@entry.x), lng: Math.floor(@entry.y) }, map: var_map, title: "@entry.localisation" }).setMap(var_map);
+            }
+        }
+
+    google.maps.event.addDomListener(window, 'load', init_map);
+</script>
+    

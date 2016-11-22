@@ -75,6 +75,7 @@ namespace HRSmart.Controllers
             ViewBag.employeecount = serviceuser.GetMany().ToList().Count;
             ViewBag.skillsuser = serviceuser.getAverageNumberOfSkillsUser();
             ViewBag.numberuserMonth = serviceuser.getUserPerMonth();
+            ViewBag.numberHR = serviceuser.getNumberofHR();
             return View();
         }
 
@@ -113,6 +114,42 @@ namespace HRSmart.Controllers
             return RedirectToAction("Index", "User");
         }
 
+
+
+        public ActionResult NBan(int id)
+        {
+            user user = serviceuser.GetById(id);
+            MailMessage mail = new MailMessage();
+            mail.From = new MailAddress("HRSmartTwin@gmail.com", "HRSmart Support");
+            mail.To.Add(new MailAddress(user.login));
+            mail.Body = "Dear " + user.firstName + " " + user.lastName + ", Your account on HRSmart has been abled.You can use again our HRSmart.";
+            SmtpClient SMTPServer = new SmtpClient("smtp.live.com", 587);
+
+
+            SMTPServer.Credentials = new System.Net.NetworkCredential("HRSmart@outlook.fr", "Beyrem2016");
+            SMTPServer.DeliveryMethod = SmtpDeliveryMethod.Network;
+            SMTPServer.EnableSsl = true;
+            try
+            {
+                SMTPServer.Send(mail);
+            }
+            catch (Exception e)
+            {
+
+            }
+
+            if (user.active)
+            {
+                user.active = false;
+            }
+            else
+            {
+                user.active = true;
+            }
+            serviceuser.Update(user);
+            serviceuser.commit();
+            return RedirectToAction("Index", "User");
+        }
         public ActionResult IndexHR()
         {
             ViewBag.users = serviceuserbuisness.getMyEmployees();

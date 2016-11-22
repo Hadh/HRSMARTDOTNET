@@ -12,49 +12,50 @@
         </h2>
     </div>
 
-    <div class="table-responsive">
-        <table id="data-table-basic" class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Title</th>
-                    <th>Business</th>
-                    <th>Salary</th>
-                    <th>Active</th>
-                </tr>
-            </thead>
-            <tfoot>
-                <tr>
-                    <th>Title</th>
-                    <th>Business</th>
-                    <th>Salary</th>
-                    <th>Active</th>
-                </tr>
-            </tfoot>
-            <tbody>
-                @foreach (var j in @ViewBag.jobs)
-                {
-                    <tr>
-                        <td>@j.title</td>
-                        <td>@j.buisness.name</td>
-                        <td>@j.salary</td>
-                        <td>@j.active</td>
-                        <td>
-                            <a href="@Url.Action("Details/"+@j.id,"JobOffer")" class="btn btn-info btn-icon waves-effect waves-circle waves-float">
-                                <i class="zmdi zmdi-search"></i>
-                            </a>
-                            @if(@j.active){
-                            <a href="@Url.Action("Switch/"+@j.id,"JobOffer")" class="btn btn-danger btn-icon waves-effect waves-circle waves-float">
-                                <i class="zmdi zmdi-close"></i>
-                            </a>
-                            }
-                            @if(!(@j.active)){
-                            <a href="@Url.Action("Switch/"+@j.id,"JobOffer")" class="btn btn-default btn-icon waves-effect waves-circle waves-float">
-                                <i class="zmdi zmdi-refresh"></i>
-                            </a>
-                            }
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    </div>
+<div class="table-responsive">
+    <table id="data-table-basic" class="table table-striped">
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Business</th>
+            <th>Salary</th>
+            <th>Active</th>
+        </tr>
+        </thead>
+        <tfoot>
+        <tr>
+            <th>Title</th>
+            <th>Business</th>
+            <th>Salary</th>
+            <th>Active</th>
+        </tr>
+        </tfoot>
+        <tbody>
+        @foreach (var j in @ViewBag.jobs)
+        {
+            <tr>
+                <td>@j.title</td>
+                <td>@j.buisness.name</td>
+                <td>@j.salary</td>
+                <td>@j.active</td>
+                <td>
+                    <a href="@Url.Action("Details/"+@j.id,"JobOffer")" class="btn btn-info btn-icon waves-effect waves-circle waves-float">
+                        <i class="zmdi zmdi-search"></i>
+                    </a>
+                    @if(@j.active){
+                        <a href="@Url.Action("Switch/"+@j.id,"JobOffer")" class="btn btn-danger btn-icon waves-effect waves-circle waves-float">
+                            <i class="zmdi zmdi-close"></i>
+                        </a>
+                    }
+                    @if(!(@j.active)){
+                        <a href="@Url.Action("Switch/"+@j.id,"JobOffer")" class="btn btn-default btn-icon waves-effect waves-circle waves-float">
+                            <i class="zmdi zmdi-refresh"></i>
+                        </a>
+                    }
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
+</div>

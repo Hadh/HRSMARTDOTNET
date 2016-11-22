@@ -17,5 +17,7 @@ namespace HRSmart.Service.Business
         skill getMostPopularSkill(List<user> users);
         float getAverageSalaries();
         float getAverageAgeOfEmployess();
+
+        user getBestEmployee();
     }
 }

@@ -1,0 +1,18 @@
+namespace HRSmart.Migrations
+{
+    using System;
+    using System.Data.Entity.Migrations;
+    
+    public partial class ff : DbMigration
+    {
+        public override void Up()
+        {
+            AddColumn("dbo.AspNetUsers", "userId", c => c.Int(nullable: false));
+        }
+        
+        public override void Down()
+        {
+            DropColumn("dbo.AspNetUsers", "userId");
+        }
+    }
+}

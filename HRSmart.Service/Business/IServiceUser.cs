@@ -13,6 +13,8 @@ namespace HRSmart.Service.Business
         float getNumberOfEmployedUsers();
         float getAverageNumberOfSkillsUser();
         List<int> getUserPerMonth();
+        int getNumberofHR();
+        
        
     }
 }

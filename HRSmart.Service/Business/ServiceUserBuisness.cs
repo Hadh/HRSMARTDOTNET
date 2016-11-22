@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 using HRSmart.data.Infrastructure;
 using HRSmart.Domain.Entities;
 using System.Collections;
+using System.Net;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace HRSmart.Service.Business
 {
@@ -117,6 +120,39 @@ namespace HRSmart.Service.Business
             }
             return sumAge / users.Count;
 
+        }
+
+        public user getBestEmployee()
+        {
+            string sURL;
+            sURL = "http://localhost:18080/HRSmart-web/rest/job/1";
+            WebRequest wrGETURL;
+            wrGETURL = WebRequest.Create(sURL);
+
+            WebProxy myProxy = new WebProxy("myproxy", 80);
+            myProxy.BypassProxyOnLocal = true;
+
+            wrGETURL.Proxy = WebProxy.GetDefaultProxy();
+
+
+            Stream objStream;
+            objStream = wrGETURL.GetResponse().GetResponseStream();
+
+            StreamReader objReader = new StreamReader(objStream);
+            string sLine = "";
+            int i = 0;
+            string final = "";
+            while (sLine != null)
+            {
+                i++;
+                sLine = objReader.ReadLine();
+                if (sLine != null)
+                {
+                    final = final + sLine;
+
+                }
+            }
+            return JsonConvert.DeserializeObject<user>(final);
         }
     }
 }

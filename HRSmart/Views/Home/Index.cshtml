@@ -1,12 +1,15 @@
-﻿
+﻿@using Microsoft.AspNet.Identity
+
+
 @{
     ViewBag.Title = "Index";
+    string firstNameLink = "Hello " + @ViewBag.firstName + "!";
     Layout = "~/Views/Shared/templateLayout.cshtml";
 }
 
 
 <div class="block-header">
-    <h2>Dashboard</h2> @ViewBag.name
+    <h2> @Html.ActionLink(firstNameLink, "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })</h2> @ViewBag.name
     <ul class="actions">
         <li>
             <a href="#">
