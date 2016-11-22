@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "Skills - Index";
+    Layout = "~/Views/Shared/templateLayout.cshtml";
+    Random rnd = new Random();
+    var colors = ViewBag.colors;
+
+}
+
+<div class="block-header">
+    <h2>Skills</h2>
+</div>
+<div class="card">
+
+    <div class="container">
+       
+        <div class="row" style="padding-bottom: 20px;">
+           
+            @foreach (KeyValuePair<string, int> skill in ViewBag.skilldic)
+            {
+                string color = colors[rnd.Next(0, 6)];
+                <div class="col-sm-3">
+                    <div class="epc-item" style="background-color: @color">
+                        <div class="easy-pie main-pie" data-percent="@skill.Value">
+                            <div class="percent">@skill.Value</div>
+                            <div class="pie-title">@skill.Key</div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        
+    </div>
+
+
+
+
+
+</div>
+

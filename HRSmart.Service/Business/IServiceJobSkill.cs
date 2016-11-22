@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace HRSmart.Service.Business
 {
-    interface IServiceJobSkill : IMyServiceGeneric<jobskill>
+    public interface IServiceJobSkill : IMyServiceGeneric<jobskill>
     {
         skill getMostPopular();
     }

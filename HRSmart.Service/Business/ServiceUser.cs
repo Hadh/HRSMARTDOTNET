@@ -88,5 +88,29 @@ namespace HRSmart.Service.Business
             }
             return li;
         }
+
+        public int getNumberofHR()
+        {
+            List<user> users = this.GetMany().ToList();
+            int counter = 0;
+            foreach (var u in users)
+            {
+
+
+                foreach (var ub in serviceuserbuisness.findByuser(u.id))
+                {
+
+                    if (ub.role == "HR")
+                    {
+
+
+                        counter++;
+                        break;
+
+                    }
+                }
+            }
+            return counter;
+        }
     }
 }
