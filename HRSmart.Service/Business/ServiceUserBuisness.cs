@@ -35,7 +35,7 @@ namespace HRSmart.Service.Business
         {
             ServiceUser serviceuser = new ServiceUser();
            
-            user user = serviceuser.GetById(3);
+            user user = serviceuser.GetById(1);
             buisness buisness = this.GetMany(ub => (ub.user.id == user.id) && (ub.role == "HR")).ToList().ElementAt(0).buisness;
             List<userbuisness> userbuisness = this.findBybuisness(buisness.id).ToList();
 
@@ -125,12 +125,12 @@ namespace HRSmart.Service.Business
         public user getBestEmployee()
         {
             string sURL;
-            sURL = "http://localhost:18080/HRSmart-web/rest/job/1";
+            sURL = "http://localhost:18080/HRSmart-web/rest/userbuisnesses/1/bestEmployee";
             WebRequest wrGETURL;
             wrGETURL = WebRequest.Create(sURL);
 
             WebProxy myProxy = new WebProxy("myproxy", 80);
-            myProxy.BypassProxyOnLocal = true;
+            myProxy.BypassProxyOnLocal = false;
 
             wrGETURL.Proxy = WebProxy.GetDefaultProxy();
 

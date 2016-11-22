@@ -1,4 +1,5 @@
-﻿@using Microsoft.AspNet.Identity
+﻿@using HRSmart.Models
+@using Microsoft.AspNet.Identity
 
 <!DOCTYPE html>
 
@@ -19,6 +20,7 @@
     
     <link href="@Url.Content("~/Content/template/")css/app_1.min.css" rel="stylesheet">
     <link href="@Url.Content("~/Content/template/")css/app_2.min.css" rel="stylesheet">
+
 </head>
 <body>
 <div>
@@ -287,7 +289,8 @@
             </div>
 
             <div class="sp-info">
-                @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+
+                Hello
 
                 <i class="zmdi zmdi-caret-down"></i>
             </div>
@@ -323,7 +326,7 @@
             <a href="index-2.html"><i class="zmdi zmdi-home"></i> Home</a>
         </li>
         <li class="sub-menu">
-            <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-chart"></i> Dashboards</a>
+            <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-chart"></i> Dashboards </a>
 
             <ul>
                 <li><a href="dashboards/analytics.html">Analytics</a></li>
@@ -546,6 +549,7 @@
     </div>
 </div>
 </body>
+
 <!-- Javascript Libraries -->
     <script src="@Url.Content("~/Content/template/")vendors/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="@Url.Content("~/Content/template/")vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>

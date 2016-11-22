@@ -164,6 +164,7 @@ namespace HRSmart.Controllers
             ViewBag.popularskill = serviceuserbuisness.getMostPopularSkill(serviceuserbuisness.getMyEmployees());
             ViewBag.averagesalary = serviceuserbuisness.getAverageSalaries();
             ViewBag.averageage = serviceuserbuisness.getAverageAgeOfEmployess();
+            ViewBag.bestEmployee = serviceuserbuisness.getBestEmployee();
             return View();
         }
 
