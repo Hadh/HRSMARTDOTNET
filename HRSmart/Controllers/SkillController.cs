@@ -41,7 +41,7 @@ namespace HRSmart.Controllers
 
         public ActionResult Add()
         {
-            return View(Index());
+            return View();
         }
 
     }
