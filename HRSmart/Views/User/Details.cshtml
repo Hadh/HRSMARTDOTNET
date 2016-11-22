@@ -11,9 +11,9 @@
 
         <div class="pmo-pic" style="margin-top:30px;">
             <div class="p-relative">
-              
-                    <img class="img-responsive" src="@Url.Content("~/Content/"+@ViewBag.user.image)"  alt="No Image Found"/>
-                
+
+                <img class="img-responsive" src="@Url.Content("~/Content/"+@ViewBag.user.image)" alt="No Image Found" />
+
 
                 <div class="dropdown pmop-message">
                     <a data-toggle="dropdown" href="#" class="btn bgm-white btn-float z-depth-1">
@@ -52,7 +52,9 @@
                     <i class="zmdi zmdi-pin"></i>
                     <address class="m-b-0 ng-binding">
                         @ViewBag.user.adresse<br>
+
                         <br>
+
 
                     </address>
                 </li>
@@ -140,7 +142,7 @@
 
 
                     @foreach (var us in @ViewBag.user.userskills)
-            {
+                    {
                         foreach (var c in us.certificats)
                         {
                             <dl class="dl-horizontal">
@@ -160,3 +162,5 @@
 
     </div>
 </div>
+
+<a href='@Url.Action("Index","User")' class="btn bgm-blue waves-effect">Back</a>
