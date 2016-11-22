@@ -2,10 +2,8 @@
     Layout = "~/Views/Shared/templateLayout.cshtml";
 }
 
-
-<div class="container">
     <div class="block-header">
-        <h2>List Of users</h2>
+        <h2>List Of Employees</h2>
 
         <ul class="actions">
             <li>
@@ -43,7 +41,7 @@
             <h2>
                 Description
                 <small>
-                    <b>This is the list of all users</b>
+                    <b>This is the list of all employees</b>
                 </small>
             </h2>
         </div>
@@ -73,38 +71,26 @@
                     </tr>
                 </tfoot>
                 <tbody>
-                    @foreach (var u in ViewBag.users)
+                    @foreach (var user in @ViewBag.users)
                     {
                         <tr>
 
-                            <td>@u.firstName</td>
-                            <td>@u.lastName</td>
-                            <td>@u.age</td>
-                            <td>@u.role</td>
-                            <td>@u.adresse</td>
-                            <td>@u.numTel</td>
+                            <td>@user.firstName</td>
+                            <td>@user.lastName</td>
+                            <td>@user.age</td>
+                            <td>@user.role</td>
+                            <td>@user.adresse</td>
+                            <td>@user.numTel</td>
                             <td>
-                               
 
 
 
-                                <a href="@Url.Action("Details/"+@u.id,"User")" class="btn btn-info btn-icon waves-effect waves-circle waves-float">
+
+                                <a href="@Url.Action("Details/"+@user.id,"User")" class="btn btn-info btn-icon waves-effect waves-circle waves-float">
 
                                     <i class="zmdi zmdi-search"></i>
                                 </a>
-                                <span style="visibility:hidden;">xx</span>
-                                @if (@u.active)
-                                {
-                                    <a href="@Url.Action("Ban/"+@u.id,"User")" class="btn btn-danger btn-icon waves-effect waves-circle waves-float">
-                                        <i class="zmdi zmdi-close"></i>
-                                    </a>
-                                }
-                                @if (!(@u.active))
-                                {
-                                    <a href="@Url.Action("NBan/" + @u.id, "User")" class="btn btn-default btn-icon waves-effect waves-circle waves-float">
-                                        <i class="zmdi zmdi-refresh"></i>
-                                    </a>
-                                }
+                                
 
                         </tr>
                     }
@@ -112,6 +98,3 @@
             </table>
         </div>
     </div>
-
-</div>
-

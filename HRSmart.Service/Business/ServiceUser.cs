@@ -76,7 +76,7 @@ namespace HRSmart.Service.Business
         {
             List<int> li = new List<int>();
            
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 6; i++)
             {
                 DateTime mon1 = DateTime.Now.Subtract((DateTime.Now.AddMonths(i) - DateTime.Now));
                 DateTime mon2 = DateTime.Now.Subtract((DateTime.Now.AddMonths(i+1) - DateTime.Now));
@@ -87,6 +87,30 @@ namespace HRSmart.Service.Business
                 .ToList().Count);
             }
             return li;
+        }
+
+        public int getNumberofHR()
+        {
+            List<user> users = this.GetMany().ToList();
+            int counter = 0;
+            foreach (var u in users)
+            {
+
+
+                foreach (var ub in serviceuserbuisness.findByuser(u.id))
+                {
+
+                    if (ub.role == "HR")
+                    {
+
+
+                        counter++;
+                        break;
+
+                    }
+                }
+            }
+            return counter;
         }
     }
 }

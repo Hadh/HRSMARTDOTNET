@@ -22,5 +22,21 @@ namespace HRSmart.Service.Business
         {
             return this.GetMany(u => u.user_id == id).ToList();
         }
+
+        public List<skill> getFromUsers(List<user> users)
+        {
+            List<skill> skills = new List<skill>();
+            foreach (var u in users)
+            {
+                foreach (var s in u.userskills)
+                {
+                    if (skills.IndexOf(s.skill)== -1)
+                    {
+                        skills.Add(s.skill);
+                    }
+                }
+            }
+            return skills;
+        }
     }
 }

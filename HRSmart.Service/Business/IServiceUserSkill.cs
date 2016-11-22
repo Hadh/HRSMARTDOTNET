@@ -11,5 +11,6 @@ namespace HRSmart.Service.Business
     public interface IServiceUserSkill : IMyServiceGeneric<userskill>
     {
         List<userskill> findByuser(int id);
+        List<skill> getFromUsers(List<user> users);
     }
 }
