@@ -11,6 +11,9 @@
 
         <div class="pmo-pic" style="margin-top:30px;">
             <div class="p-relative">
+              
+                    <img class="img-responsive" src="@Url.Content("~/Content/"+@ViewBag.user.image)"  alt="No Image Found"/>
+                
 
                 <div class="dropdown pmop-message">
                     <a data-toggle="dropdown" href="#" class="btn bgm-white btn-float z-depth-1">
@@ -41,7 +44,10 @@
             <ul>
                 <li><i class="zmdi zmdi-phone"></i>@ViewBag.user.numTel</li>
                 <li><i class="zmdi zmdi-email"></i>@ViewBag.user.login </li>
-
+                <li><i class="zmdi zmdi-facebook-box"></i>@ViewBag.user.facebook</li>
+                <li><i class="zmdi zmdi-twitter"></i> @ViewBag.user.twitter</li>
+                <li><i class="zmdi zmdi-skype"></i> @ViewBag.user.skype</li>
+                <li><i class="zmdi zmdi-linkedin-box"></i> @ViewBag.user.linkedin</li>
                 <li>
                     <i class="zmdi zmdi-pin"></i>
                     <address class="m-b-0 ng-binding">
@@ -81,6 +87,10 @@
                     <dl class="dl-horizontal">
                         <dt>Age</dt>
                         <dd>@ViewBag.user.age</dd>
+                    </dl>
+                    <dl class="dl-horizontal">
+                        <dt>Sexe</dt>
+                        <dd>@ViewBag.user.sexe</dd>
                     </dl>
 
 

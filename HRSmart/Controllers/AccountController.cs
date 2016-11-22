@@ -70,6 +70,8 @@ namespace HRSmart.Controllers
         {
             if (!ModelState.IsValid)
             {
+                
+                //ViewBag.name = UserManager.FindByEmailAsync(model.Email);
                 return View(model);
             }
 
@@ -153,14 +155,18 @@ namespace HRSmart.Controllers
             {
                 var user = new ApplicationUser
                 {
-                    UserName = model.Email, Email = model.Email,FirstName = model.FirstName,
+                    UserName = model.FirstName, Email = model.Email, FirstName = model.FirstName,
                     LastName = model.LastName, Adresse = "Hee"
                 };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+                   
+                    //var insertedUser = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+                    UserManager.AddToRole(user.Id, "Admin");
+
+
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
@@ -391,14 +397,13 @@ namespace HRSmart.Controllers
 
         //
         // POST: /Account/LogOff
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+        [HttpGet]
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Login", "Account");
         }
-
+            
         //
         // GET: /Account/ExternalLoginFailure
         [AllowAnonymous]

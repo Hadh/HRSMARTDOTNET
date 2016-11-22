@@ -3,6 +3,7 @@ using HRSmart.Service.Business;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 
@@ -10,16 +11,17 @@ namespace HRSmart.Controllers
 {
     public class UserController : Controller
     {
-       
+
         IServiceUser serviceuser = new ServiceUser();
         IServiceUserBuisness serviceuserbuisness = new ServiceUserBuisness();
         IServiceUserSkill serviceuserskill = new ServiceUserSkill();
         IServiceCertificat servicecertificat = new ServiceCertificat();
+        IServiceBusiness servicebuisness = new ServiceBusiness();
         // GET: User
         public ActionResult Index()
         {
             List<user> users = serviceuser.GetMany().ToList();
-            
+
             foreach (var u in users)
             {
                 Console.WriteLine(u.firstName);
@@ -46,9 +48,9 @@ namespace HRSmart.Controllers
                         verif = true;
                         break;
                     }
-                    
+
                 }
-                if (verif==false)
+                if (verif == false)
                 {
                     u.role = "Non Employed";
                 }
@@ -66,70 +68,102 @@ namespace HRSmart.Controllers
             return View();
         }
 
-        // GET: User/Create
-        public ActionResult Create()
+        // GET: User/Statistics
+        public ActionResult Statistics()
         {
+            ViewBag.userEmployed = serviceuser.getNumberOfEmployedUsers();
+            ViewBag.employeecount = serviceuser.GetMany().ToList().Count;
+            ViewBag.skillsuser = serviceuser.getAverageNumberOfSkillsUser();
+            ViewBag.numberuserMonth = serviceuser.getUserPerMonth();
+            ViewBag.numberHR = serviceuser.getNumberofHR();
             return View();
         }
 
-        // POST: User/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Ban(int id)
         {
+            user user = serviceuser.GetById(id);
+            MailMessage mail = new MailMessage();
+            mail.From = new MailAddress("HRSmartTwin@gmail.com","HRSmart Support");
+            mail.To.Add(new MailAddress(user.login));
+                mail.Body = "Dear " + user.firstName + " " + user.lastName + ", Your account on HRSmart has been disabled due to your actions on our platform lately. This Ban might be permanant.";
+            SmtpClient SMTPServer = new SmtpClient("smtp.live.com",587);
+
+
+            SMTPServer.Credentials = new System.Net.NetworkCredential("HRSmart@outlook.fr", "Beyrem2016");
+            SMTPServer.DeliveryMethod = SmtpDeliveryMethod.Network;
+            SMTPServer.EnableSsl = true;
             try
             {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
+                SMTPServer.Send(mail);
             }
-            catch
+            catch(Exception e)
             {
-                return View();
+
             }
+
+            if (user.active)
+            {
+                user.active = false;
+            }
+            else
+            {
+                user.active = true;
+            }
+            serviceuser.Update(user);
+            serviceuser.commit();
+            return RedirectToAction("Index", "User");
         }
 
-        // GET: User/Edit/5
-        public ActionResult Edit(int id)
+
+
+        public ActionResult NBan(int id)
         {
+            user user = serviceuser.GetById(id);
+            MailMessage mail = new MailMessage();
+            mail.From = new MailAddress("HRSmartTwin@gmail.com", "HRSmart Support");
+            mail.To.Add(new MailAddress(user.login));
+            mail.Body = "Dear " + user.firstName + " " + user.lastName + ", Your account on HRSmart has been abled.You can use again our HRSmart.";
+            SmtpClient SMTPServer = new SmtpClient("smtp.live.com", 587);
+
+
+            SMTPServer.Credentials = new System.Net.NetworkCredential("HRSmart@outlook.fr", "Beyrem2016");
+            SMTPServer.DeliveryMethod = SmtpDeliveryMethod.Network;
+            SMTPServer.EnableSsl = true;
+            try
+            {
+                SMTPServer.Send(mail);
+            }
+            catch (Exception e)
+            {
+
+            }
+
+            if (user.active)
+            {
+                user.active = false;
+            }
+            else
+            {
+                user.active = true;
+            }
+            serviceuser.Update(user);
+            serviceuser.commit();
+            return RedirectToAction("Index", "User");
+        }
+        public ActionResult IndexHR()
+        {
+            ViewBag.users = serviceuserbuisness.getMyEmployees();
+            
             return View();
         }
 
-        // POST: User/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult StatisticHR()
         {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: User/Delete/5
-        public ActionResult Delete(int id)
-        {
+            ViewBag.popularskill = serviceuserbuisness.getMostPopularSkill(serviceuserbuisness.getMyEmployees());
+            ViewBag.averagesalary = serviceuserbuisness.getAverageSalaries();
+            ViewBag.averageage = serviceuserbuisness.getAverageAgeOfEmployess();
             return View();
         }
 
-        // POST: User/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
     }
 }

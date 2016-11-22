@@ -10,5 +10,11 @@ namespace HRSmart.Service.Business
 {
     public interface IServiceUser : IMyServiceGeneric<user>
     {
+        float getNumberOfEmployedUsers();
+        float getAverageNumberOfSkillsUser();
+        List<int> getUserPerMonth();
+        int getNumberofHR();
+        
+       
     }
 }
