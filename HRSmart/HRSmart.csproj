@@ -316,6 +316,7 @@
     <Content Include="Views\User\IndexHR.cshtml" />
     <Content Include="Views\User\StatisticHR.cshtml" />
     <Content Include="Views\Skill\Index.cshtml" />
+    <Content Include="Views\Business\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
