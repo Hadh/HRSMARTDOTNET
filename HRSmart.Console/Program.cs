@@ -40,9 +40,18 @@ namespace HRSmart.Console
                 if(input == "0") break;
                 var response = ai.TextRequest(input);
                 System.Console.WriteLine(response.Result.Fulfillment.Speech);
+                if (response.Result.GetStringParameter("subject") != "" &&
+                    response.Result.GetStringParameter("description") != "")
+                {
+                    System.Console.WriteLine("subject : " + response.Result.GetStringParameter("subject"));
+                    System.Console.WriteLine("description : " + response.Result.GetStringParameter("description"));
+                    break;
+                }
                 
             }
-        
-    }
+            System.Console.ReadLine();
+
+
+        }
     }
 }
