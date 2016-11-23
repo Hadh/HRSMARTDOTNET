@@ -13,8 +13,15 @@ namespace HRSmart.Domain.Entities
             this.userskills = new List<userskill>();
         }
 
+        public skill(string name, string photo)
+        {
+            this.name = name;
+            this.photo = photo;
+        }
+
         public int id { get; set; }
         public string name { get; set; }
+        public string photo { get; set; }
         public virtual ICollection<certificat> certificats { get; set; }
         public virtual ICollection<jobskill> jobskills { get; set; }
         public virtual ICollection<question> questions { get; set; }

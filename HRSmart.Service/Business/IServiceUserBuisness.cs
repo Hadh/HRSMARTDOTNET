@@ -12,7 +12,7 @@ namespace HRSmart.Service.Business
     {
         List<userbuisness> findByuser(int id);
         List<userbuisness> findBybuisness(int id);
-        List<user> getMyEmployees();
+        List<user> getMyEmployees(int id);
 
         skill getMostPopularSkill(List<user> users);
         float getAverageSalaries();
