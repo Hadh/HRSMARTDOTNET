@@ -39,10 +39,33 @@ namespace HRSmart.Console
                 string input = System.Console.ReadLine();
                 if(input == "0") break;
                 var response = ai.TextRequest(input);
+                System.Console.WriteLine("========Context Debug============");
+                foreach (var context in response.Result.Contexts)
+                {
+                    System.Console.WriteLine("context : "+context.Name);
+                    System.Console.WriteLine("Parameters : {");
+                    
+                    foreach (KeyValuePair<string,object> pair in context.Parameters)
+                    {
+                        System.Console.WriteLine(pair.Key);
+                        System.Console.WriteLine(pair.Value);
+                    }
+
+                }
+                System.Console.WriteLine("}\n=========End Debug=======");
                 System.Console.WriteLine(response.Result.Fulfillment.Speech);
+                if (response.Result.GetStringParameter("subject") != "" &&
+                    response.Result.GetStringParameter("description") != "")
+                {
+                    System.Console.WriteLine("subject : " + response.Result.GetStringParameter("subject"));
+                    System.Console.WriteLine("description : " + response.Result.GetStringParameter("description"));
+                    break;
+                }
                 
             }
-        
-    }
+            System.Console.ReadLine();
+
+
+        }
     }
 }
