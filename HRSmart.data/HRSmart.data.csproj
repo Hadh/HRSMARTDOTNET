@@ -68,6 +68,11 @@
     <Compile Include="Infrastructure\IUnitOfWork.cs" />
     <Compile Include="Infrastructure\RepositoryBase.cs" />
     <Compile Include="Infrastructure\UnitOfWork.cs" />
+    <Compile Include="Migrations\201611222229147_added_photo_to_skill.cs" />
+    <Compile Include="Migrations\201611222229147_added_photo_to_skill.Designer.cs">
+      <DependentUpon>201611222229147_added_photo_to_skill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Mapping\addressMap.cs" />
     <Compile Include="Models\Mapping\assessmentMap.cs" />
     <Compile Include="Models\Mapping\buisnessMap.cs" />
@@ -97,6 +102,11 @@
       <Project>{35f04e2c-bdc8-4dd7-81c1-382826e2b286}</Project>
       <Name>HRSmart.Domain</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201611222229147_added_photo_to_skill.resx">
+      <DependentUpon>201611222229147_added_photo_to_skill.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

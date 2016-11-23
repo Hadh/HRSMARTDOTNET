@@ -10,7 +10,8 @@
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
+    @Styles.Render("~/Content/dropzonescss")
+    <link href="@Url.Content("~/Content/")SkillStyle.css" rel="stylesheet">
     <link href="@Url.Content("~/Content/template/")vendors/bower_components/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet">
     <link href="@Url.Content("~/Content/template/")vendors/bower_components/animate.css/animate.min.css" rel="stylesheet">
     <link href="@Url.Content("~/Content/template/")vendors/bower_components/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet">
@@ -20,6 +21,8 @@
 
     <link href="@Url.Content("~/Content/template/")css/app_1.min.css" rel="stylesheet">
     <link href="@Url.Content("~/Content/template/")css/app_2.min.css" rel="stylesheet">
+    
+   
 </head>
 <body>
     <div>
@@ -241,6 +244,7 @@
     </div>
 </body>
 <!-- Javascript Libraries -->
+
 <script src="@Url.Content("~/Content/template/")vendors/bower_components/jquery/dist/jquery.min.js"></script>
 <script src="@Url.Content("~/Content/template/")vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
@@ -260,6 +264,8 @@
 <script src="@Url.Content("~/Content/template/")js/app.min.js"></script>
 
 <script src="@Url.Content("~/Content/template/")vendors/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+@Scripts.Render("~/bundles/dropzonescripts")
+
 @RenderSection("scripts",required:false)
 <script type="text/javascript">
             $(document).ready(function() {
