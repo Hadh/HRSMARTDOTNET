@@ -16,229 +16,261 @@
     <link href="@Url.Content("~/Content/template/")vendors/bower_components/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet">
     <link href="@Url.Content("~/Content/template/")vendors/bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css" rel="stylesheet">
     <link href="@Url.Content("~/Content/template/")vendors/bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css" rel="stylesheet">
+    <link href="@Url.Content("~/Content/")chatStyle.css" rel="stylesheet">
 
 
     <link href="@Url.Content("~/Content/template/")css/app_1.min.css" rel="stylesheet">
     <link href="@Url.Content("~/Content/template/")css/app_2.min.css" rel="stylesheet">
 </head>
 <body>
-    <div>
-        <header id="header" class="clearfix" data-ma-theme="blue">
-            <ul class="h-inner">
-                <li class="hi-trigger ma-trigger" data-ma-action="sidebar-open" data-ma-target="#sidebar">
-                    <div class="line-wrap">
-                        <div class="line top"></div>
-                        <div class="line center"></div>
-                        <div class="line bottom"></div>
-                    </div>
-                </li>
 
-                <li class="hi-logo hidden-xs">
-                    <a href="#">   HR-SMART   </a>
+<div>
+<header id="header" class="clearfix" data-ma-theme="blue">
+    <ul class="h-inner">
+        <li class="hi-trigger ma-trigger" data-ma-action="sidebar-open" data-ma-target="#sidebar">
+            <div class="line-wrap">
+                <div class="line top"></div>
+                <div class="line center"></div>
+                <div class="line bottom"></div>
+            </div>
+        </li>
+
+        <li class="hi-logo hidden-xs">
+            <a href="#">   HR-SMART   </a>
 
                     
+        </li>
+
+        <li class="pull-right">
+            <ul class="hi-menu">
+
+                <li data-ma-action="search-open">
+                    <a href="#"><i class="him-icon zmdi zmdi-search"></i></a>
                 </li>
 
-                <li class="pull-right">
-                    <ul class="hi-menu">
-
-                        <li data-ma-action="search-open">
-                            <a href="#"><i class="him-icon zmdi zmdi-search"></i></a>
-                        </li>
-
-                    </ul>
-                </li>
             </ul>
+        </li>
+    </ul>
 
-            <!-- Top Search Content -->
-            <!-- Stupid comment -->
-            <div class="h-search-wrap">
-                <div class="hsw-inner">
-                    <i class="hsw-close zmdi zmdi-arrow-left" data-ma-action="search-close"></i>
-                    <input type="text">
-                </div>
-            </div>
-        </header>
-
-        <section id="main">
-            <aside id="sidebar" class="sidebar c-overflow">
-                <div class="s-profile">
-                    <a href="#" data-ma-action="profile-menu-toggle">
-                        <div class="sp-pic">
-                            <img src="images/logo.png" alt="Sample Photo" />
-                           
-                        </div>
-
-                        <div class="sp-info">
-
-                            Main Menu
-
-                            <i class="zmdi zmdi-caret-down"></i>
-                        </div>
-                    </a>
-                    <ul class="main-menu">
-
-
-                        <li>
-                            <a href="@Url.Action("LogOff", "Account")"> <span>Logout</span></a>
-                        </li>
-
-
-                    </ul>
-
-                </div>
-
-                <ul class="main-menu">
-                    <li class="sub-menu">
-                        <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-accounts-alt"></i> Users </a>
-
-                        <ul>
-                            <li><a href="@Url.Action("Statistics","User")">Analytics</a></li>
-                            <li><a href="@Url.Action("Index","User")">List</a></li>
-                        </ul>
-                    </li>
-                    <li class="sub-menu">
-                        <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-assignment"></i> Job Offers</a>
-
-                        <ul>
-                            <li><a href="@Url.Action("JobsAnalytics","JobOffer")">Analytics</a></li>
-                            <li><a href="@Url.Action("Index","JobOffer")">List</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="sub-menu">
-                        <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-markunread-mailbox"></i> Businesses </a>
-
-                        <ul>
-                            <li><a href="dashboards/analytics.html">Analytics</a></li>
-                            <li><a href="dashboards/school.html">List</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="@Url.Action("Index","Quiz")"><i class="zmdi zmdi-lamp"></i> Quiz</a>
-                    </li>
-                    <li>
-                        <a href="@Url.Action("Index","Certificat")"><i class="zmdi zmdi-collection-bookmark"></i> Certificats</a>
-                    </li>
-                    <li class="sub-menu">
-                        <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-assignment"></i> Skills</a>
-
-                        <ul>
-                            <li><a href="@Url.Action("Index","Skill")">Dashboard</a></li>
-                            <li><a href="@Url.Action("Add","Skill")">Add Skills</a></li>
-                        </ul>
-                    </li>
-
-
-            </aside>
-
-            <aside id="chat" class="sidebar">
-
-                <div class="chat-search">
-                    <div class="fg-line">
-                        <input type="text" class="form-control" placeholder="Search People">
-                        <i class="zmdi zmdi-search"></i>
-                    </div>
-                </div>
-
-                <div class="lg-body c-overflow">
-                    <div class="list-group">
-                        <a class="list-group-item media" href="#">
-                            <div class="pull-left p-relative">
-                                <img class="lgi-img" src="img/demo/profile-pics/2.jpg" alt="">
-                                <i class="chat-status-busy"></i>
-                            </div>
-                            <div class="media-body">
-                                <div class="lgi-heading">Jonathan Morris</div>
-                                <small class="lgi-text">Available</small>
-                            </div>
-                        </a>
-
-                        <a class="list-group-item media" href="#">
-                            <div class="pull-left">
-                                <img class="lgi-img" src="img/demo/profile-pics/1.jpg" alt="">
-                            </div>
-                            <div class="media-body">
-                                <div class="lgi-heading">David Belle</div>
-                                <small class="lgi-text">Last seen 3 hours ago</small>
-                            </div>
-                        </a>
-
-                        <a class="list-group-item media" href="#">
-                            <div class="pull-left p-relative">
-                                <img class="lgi-img" src="img/demo/profile-pics/3.jpg" alt="">
-                                <i class="chat-status-online"></i>
-                            </div>
-                            <div class="media-body">
-                                <div class="lgi-heading">Fredric Mitchell Jr.</div>
-                                <small class="lgi-text">Availble</small>
-                            </div>
-                        </a>
-
-                        <a class="list-group-item media" href="#">
-                            <div class="pull-left p-relative">
-                                <img class="lgi-img" src="img/demo/profile-pics/4.jpg" alt="">
-                                <i class="chat-status-online"></i>
-                            </div>
-                            <div class="media-body">
-                                <div class="lgi-heading">Glenn Jecobs</div>
-                                <small class="lgi-text">Availble</small>
-                            </div>
-                        </a>
-
-                        <a class="list-group-item media" href="#">
-                            <div class="pull-left">
-                                <img class="lgi-img" src="img/demo/profile-pics/5.jpg" alt="">
-                            </div>
-                            <div class="media-body">
-                                <div class="lgi-heading">Bill Phillips</div>
-                                <small class="lgi-text">Last seen 3 days ago</small>
-                            </div>
-                        </a>
-
-                        <a class="list-group-item media" href="#">
-                            <div class="pull-left">
-                                <img class="lgi-img" src="img/demo/profile-pics/6.jpg" alt="">
-                            </div>
-                            <div class="media-body">
-                                <div class="lgi-heading">Wendy Mitchell</div>
-                                <small class="lgi-text">Last seen 2 minutes ago</small>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </aside>
-
-            <section id="content">
-                <div class="container">
-                    @RenderBody()
-                </div>
-            </section>
-        </section>
-
-        <footer id="footer">
-            Copyright &copy; 2015 Material Admin
-
-            <ul class="f-menu">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Dashboard</a></li>
-                <li><a href="#">Reports</a></li>
-                <li><a href="#">Support</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </footer>
-
-        <!-- Page Loader -->
-        <div class="page-loader">
-            <div class="preloader pls-blue">
-                <svg class="pl-circular" viewBox="25 25 50 50">
-                    <circle class="plc-path" cx="50" cy="50" r="20" />
-                </svg>
-
-                <p>Please wait...</p>
-            </div>
+    <!-- Top Search Content -->
+    <!-- Stupid comment -->
+    <div class="h-search-wrap">
+        <div class="hsw-inner">
+            <i class="hsw-close zmdi zmdi-arrow-left" data-ma-action="search-close"></i>
+            <input type="text">
         </div>
     </div>
+</header>
+
+<section id="main">
+    <aside id="sidebar" class="sidebar c-overflow">
+        <div class="s-profile">
+            <a href="#" data-ma-action="profile-menu-toggle">
+                <div class="sp-pic">
+                    <img src="images/logo.png" alt="Sample Photo" />
+                           
+                </div>
+
+                <div class="sp-info">
+
+                    Main Menu
+
+                    <i class="zmdi zmdi-caret-down"></i>
+                </div>
+            </a>
+            <ul class="main-menu">
+
+
+                <li>
+                    <a href="@Url.Action("LogOff", "Account")"> <span>Logout</span></a>
+                </li>
+
+
+            </ul>
+
+        </div>
+
+        <ul class="main-menu">
+        <li class="sub-menu">
+            <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-accounts-alt"></i> Users </a>
+
+            <ul>
+                <li><a href="@Url.Action("Statistics","User")">Analytics</a></li>
+                <li><a href="@Url.Action("Index","User")">List</a></li>
+            </ul>
+        </li>
+        <li class="sub-menu">
+            <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-assignment"></i> Job Offers</a>
+
+            <ul>
+                <li><a href="@Url.Action("JobsAnalytics","JobOffer")">Analytics</a></li>
+                <li><a href="@Url.Action("Index","JobOffer")">List</a></li>
+            </ul>
+        </li>
+
+        <li class="sub-menu">
+            <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-markunread-mailbox"></i> Businesses </a>
+
+            <ul>
+                <li><a href="dashboards/analytics.html">Analytics</a></li>
+                <li><a href="dashboards/school.html">List</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="@Url.Action("Index","Quiz")"><i class="zmdi zmdi-lamp"></i> Quiz</a>
+        </li>
+        <li>
+            <a href="@Url.Action("Index","Certificat")"><i class="zmdi zmdi-collection-bookmark"></i> Certificats</a>
+        </li>
+        <li class="sub-menu">
+            <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-assignment"></i> Skills</a>
+
+            <ul>
+                <li><a href="@Url.Action("Index","Skill")">Dashboard</a></li>
+                <li><a href="@Url.Action("Add","Skill")">Add Skills</a></li>
+            </ul>
+        </li>
+
+
+    </aside>
+
+    <aside id="chat" class="sidebar">
+
+        <div class="chat-search">
+            <div class="fg-line">
+                <input type="text" class="form-control" placeholder="Search People">
+                <i class="zmdi zmdi-search"></i>
+            </div>
+        </div>
+
+        <div class="lg-body c-overflow">
+            <div class="list-group">
+                <a class="list-group-item media" href="#">
+                    <div class="pull-left p-relative">
+                        <img class="lgi-img" src="img/demo/profile-pics/2.jpg" alt="">
+                        <i class="chat-status-busy"></i>
+                    </div>
+                    <div class="media-body">
+                        <div class="lgi-heading">Jonathan Morris</div>
+                        <small class="lgi-text">Available</small>
+                    </div>
+                </a>
+
+                <a class="list-group-item media" href="#">
+                    <div class="pull-left">
+                        <img class="lgi-img" src="img/demo/profile-pics/1.jpg" alt="">
+                    </div>
+                    <div class="media-body">
+                        <div class="lgi-heading">David Belle</div>
+                        <small class="lgi-text">Last seen 3 hours ago</small>
+                    </div>
+                </a>
+
+                <a class="list-group-item media" href="#">
+                    <div class="pull-left p-relative">
+                        <img class="lgi-img" src="img/demo/profile-pics/3.jpg" alt="">
+                        <i class="chat-status-online"></i>
+                    </div>
+                    <div class="media-body">
+                        <div class="lgi-heading">Fredric Mitchell Jr.</div>
+                        <small class="lgi-text">Availble</small>
+                    </div>
+                </a>
+
+                <a class="list-group-item media" href="#">
+                    <div class="pull-left p-relative">
+                        <img class="lgi-img" src="img/demo/profile-pics/4.jpg" alt="">
+                        <i class="chat-status-online"></i>
+                    </div>
+                    <div class="media-body">
+                        <div class="lgi-heading">Glenn Jecobs</div>
+                        <small class="lgi-text">Availble</small>
+                    </div>
+                </a>
+
+                <a class="list-group-item media" href="#">
+                    <div class="pull-left">
+                        <img class="lgi-img" src="img/demo/profile-pics/5.jpg" alt="">
+                    </div>
+                    <div class="media-body">
+                        <div class="lgi-heading">Bill Phillips</div>
+                        <small class="lgi-text">Last seen 3 days ago</small>
+                    </div>
+                </a>
+
+                <a class="list-group-item media" href="#">
+                    <div class="pull-left">
+                        <img class="lgi-img" src="img/demo/profile-pics/6.jpg" alt="">
+                    </div>
+                    <div class="media-body">
+                        <div class="lgi-heading">Wendy Mitchell</div>
+                        <small class="lgi-text">Last seen 2 minutes ago</small>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </aside>
+
+    <section id="content">
+        <div class="container">
+            @RenderBody()
+        </div>
+    </section>
+</section>
+
+<footer id="footer">
+    Copyright &copy; 2015 Material Admin
+
+    <ul class="f-menu">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Dashboard</a></li>
+        <li><a href="#">Reports</a></li>
+        <li><a href="#">Support</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+</footer>
+<div class="card" id="chatbox">
+        
+    <div id="chatboxHeader" class="bgm-lightblue card-header">
+        <h2>Luis, your savior</h2>
+    </div>
+
+    <div class="card-body">
+            
+        <div id="messages" class="container">
+            <div class="row">
+                <div class="msg msg-bot bgm-deeppurple">
+                    <p>Hi There, I'm Luis and I'm here to help you!</p>
+                </div>
+            </div>
+            
+        </div>
+
+        <form id="chatform">
+            <div class="form-group">
+                <div class="fg-line">
+                    <input id="chatInput" class="form-control input-sm" placeholder="Type your message here" type="text">
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>
+<button id="chatToggle" class="btn bgm-cyan btn-icon waves-effect waves-circle waves-float">
+    <i class="zmdi zmdi-comment-more"></i> 
+</button>
+<!-- Page Loader -->
+<div class="page-loader">
+    <div class="preloader pls-blue">
+        <svg class="pl-circular" viewBox="25 25 50 50">
+            <circle class="plc-path" cx="50" cy="50" r="20" />
+        </svg>
+
+        <p>Please wait...</p>
+    </div>
+</div>
+</div>
+
 </body>
 <!-- Javascript Libraries -->
 <script src="@Url.Content("~/Content/template/")vendors/bower_components/jquery/dist/jquery.min.js"></script>
@@ -260,10 +292,54 @@
 <script src="@Url.Content("~/Content/template/")js/app.min.js"></script>
 
 <script src="@Url.Content("~/Content/template/")vendors/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="~/Scripts/jquery.signalR-2.1.2.min.js"></script>
+<script src="~/signalr/hubs"></script>
+
 @RenderSection("scripts",required:false)
 <script type="text/javascript">
-            $(document).ready(function() {
-                $('#data-table-basic').DataTable();
-            } );
+    $(document)
+        .ready(function() {
+            $('#data-table-basic').DataTable();
+            $('#chatbox').hide();
+
+            $('#chatToggle')
+                .click(function() {
+                    $('#chatbox').toggle({ duration: 200 });
+                });
+            var chat = $.connection.supportHub;
+            chat.client.echoBack = function (message) {
+                /*var messagehtml = '<div class="row">' +
+                    '<div class="msg msg-bot bgm-deeppurple">' +
+                    '<p>' +
+                    message +
+                    '</p>' +
+                    '</div>' +
+                    '</div>';
+               
+                $('#messages').append(messagehtml);*/
+            console.log(message);
+        }
+            $.connection.hub.start()
+                .done(function() {
+                    $('#chatform')
+                        .submit(function(e) {
+                            e.preventDefault;
+                            var message = $('#chatInput').val();
+
+                            var messagehtml = '<div class="row">' +
+                                            '<div class="msg msg-bot bgm-lightblue pull-right">' +
+                                            '<p>' +
+                                            message +
+                                            '</p>' +
+                                            '</div>' +
+                                            '</div>';
+                            $('#messages').append(messagehtml);
+                            $('#messages').scrollTop(-10);
+                            chat.server.send(message);
+                            $('#chatInput').val('');
+                            return false;
+                        });
+                });
+        });
 </script>
 </html>
