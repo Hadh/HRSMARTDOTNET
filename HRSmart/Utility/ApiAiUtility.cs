@@ -8,12 +8,12 @@ namespace HRSmart.Utility
 {
     public class ApiAiUtility
     {
-        private ApiAi ai;
+        public ApiAi Ai { get; set; }
 
         public ApiAiUtility()
         {
             var config = new AIConfiguration("2b4219f782904d6a996efcc54b5742fe", SupportedLanguage.English);
-            ai = new ApiAi(config);
+            this.Ai = new ApiAi(config);
         }
     }
 }

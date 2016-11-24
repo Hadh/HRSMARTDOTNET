@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "Skills - Add";
+    Layout = "~/Views/Shared/templateLayout.cshtml";
+    Random rnd = new Random();
+    var colors = ViewBag.colors;
+   
+
+
+
+}
+
+
+<div class="block-header">
+    <h2> Add Skills</h2>
+</div>
+@if (@ViewBag.error != null)
+{
+    <div class="row">
+        <div class="col-lg-12" style="background-color: #f44336">
+            <h2> @ViewBag.error</h2>
+
+        </div>
+    </div>
+}
+
+<div class="card">
+    <div class="jumbotron" style="background-color: transparent">
+        <form action="~/Skill/SaveUploadedFile" method="post" enctype="multipart/form-data" class="dropzone" id="dropzoneForm" style="width: 100%; background: none; border: none;">
+            <div class="fallback">
+                <input type="text" class="form-control" placeholder="Skill Name" name="skillname" style="margin-bottom: 20px">
+                <input name="file" type="file" multiple/>
+                <input type="submit" value="Upload"/>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+

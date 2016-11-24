@@ -14,5 +14,7 @@ namespace HRSmart.Service.Business
         IDictionary<skill, int> getPopularByJob();
         IDictionary<skill, int> getPopularByUser();
         decimal getSkillPopularity(int id);
+
+        IDictionary<DateTime, int> getDemand(skill skill);
     }
 }

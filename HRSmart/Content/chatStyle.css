@@ -1,0 +1,44 @@
+﻿#chatToggle {
+    position: fixed;
+    bottom: 60px;
+    right: 120px;
+}
+#chatbox {
+    width: 300px;
+    height: 350px;
+    position: fixed;
+    bottom: 90px;
+    right: 5px;
+    
+}
+#chatboxHeader {
+    padding: 10px 10px;
+}
+#chatboxHeader h4{
+    
+    color: white;
+}
+
+#messages {
+    height: 284px;
+    overflow: auto;
+    border-bottom: 2px solid #00BCD4;
+}
+
+.msg {
+    
+    margin: 20px 10px;
+    padding: 10px 5px;
+    width: -moz-fit-content;
+    
+    max-width: 200px;
+    border-radius: 5px;
+    color: white;
+}
+.msg p {
+    margin: 0;
+}
+.msg-client {
+    right: 0px
+}
+

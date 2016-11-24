@@ -70,5 +70,30 @@ namespace HRSmart.Service.Business
             
             return count;
         }
+
+        public IDictionary<DateTime, int> getDemand(skill skill)
+        {
+            int count = 0;
+            IDictionary<DateTime,int> demandDictionary = new Dictionary<DateTime, int>();
+            //List<jobskill> jobskills =
+            //    itw.getRepository<jobskill>()
+            //        .GetMany(js => js.joboffer.creationDate.Day > DateTime.Today.Day - 30)
+            //        .ToList();
+            IEnumerable<IGrouping<DateTime, jobskill>> query = itw.getRepository<jobskill>()
+                .GetMany(js => js.joboffer.creationDate.Day > DateTime.Today.Day)
+                .GroupBy(jobskill =>jobskill.joboffer.creationDate);
+
+            foreach (IGrouping<DateTime, jobskill> jobskills in query)
+            {
+                foreach (jobskill jobskill in jobskills)
+                {
+                    if (jobskill.skill.id == skill.id)
+                    {
+                        demandDictionary.Add(jobskills.Key,jobskills.Count());
+                    }
+                }
+            }
+            return demandDictionary;
+        }
     }
 }

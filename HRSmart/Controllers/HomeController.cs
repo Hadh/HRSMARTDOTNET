@@ -19,9 +19,17 @@ namespace HRSmart.Controllers
                 System.Web.HttpContext.Current.GetOwinContext()
                     .GetUserManager<ApplicationUserManager>()
                     .FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
-
             ViewBag.firstName = user.FirstName;
-            return View();
+            if (user.Roles.ElementAt(0).RoleId == "1")
+            {
+                return RedirectToAction("Statistics","User");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Business");
+            }
+
+         
         }
 
         public ActionResult About()

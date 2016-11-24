@@ -15,6 +15,9 @@ namespace HRSmart.data.Models.Mapping
             this.Property(t => t.name)
                 .HasMaxLength(255);
 
+            this.Property(t => t.photo)
+                .HasMaxLength(255);
+
             // Table & Column Mappings
             this.ToTable("skill", "mysqlpi");
             this.Property(t => t.id).HasColumnName("id");

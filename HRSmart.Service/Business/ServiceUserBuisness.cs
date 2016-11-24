@@ -31,11 +31,12 @@ namespace HRSmart.Service.Business
             return this.GetMany(u => u.buisness_id == id).ToList();
         }
 
-        public List<user> getMyEmployees()
+        public List<user> getMyEmployees(int id)
         {
+
             ServiceUser serviceuser = new ServiceUser();
            
-            user user = serviceuser.GetById(1);
+            user user = serviceuser.GetById(id);
             buisness buisness = this.GetMany(ub => (ub.user.id == user.id) && (ub.role == "HR")).ToList().ElementAt(0).buisness;
             List<userbuisness> userbuisness = this.findBybuisness(buisness.id).ToList();
 
