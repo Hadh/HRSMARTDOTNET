@@ -91,10 +91,17 @@
     <Compile Include="Models\Mapping\userMap.cs" />
     <Compile Include="Models\Mapping\userskillMap.cs" />
     <Compile Include="Models\mysqlpiContext.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="bin\Debug\HRSmart.data.dll.config" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Debug\HRSmart.data.csproj.GenerateResource.Cache" />
+    <None Include="obj\Debug\HRSmart.data.csprojResolveAssemblyReference.cache" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -107,6 +114,28 @@
     <EmbeddedResource Include="Migrations\201611222229147_added_photo_to_skill.resx">
       <DependentUpon>201611222229147_added_photo_to_skill.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="obj\Debug\HRSmart.data.Migrations.added_photo_to_skill.resources" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\EntityFramework.dll" />
+    <Content Include="bin\Debug\EntityFramework.SqlServer.dll" />
+    <Content Include="bin\Debug\EntityFramework.SqlServer.xml" />
+    <Content Include="bin\Debug\EntityFramework.xml" />
+    <Content Include="bin\Debug\HRSmart.data.dll" />
+    <Content Include="bin\Debug\HRSmart.data.pdb" />
+    <Content Include="bin\Debug\HRSmart.Domain.dll" />
+    <Content Include="bin\Debug\HRSmart.Domain.pdb" />
+    <Content Include="bin\Debug\MySql.Data.dll" />
+    <Content Include="bin\Debug\MySql.Data.Entity.EF6.dll" />
+    <Content Include="bin\Debug\MySql.Data.Entity.EF6.xml" />
+    <Content Include="bin\Debug\MySql.Data.xml" />
+    <Content Include="bin\Debug\MySql.Fabric.Plugin.dll" />
+    <Content Include="obj\Debug\HRSmart.data.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\HRSmart.data.dll" />
+    <Content Include="obj\Debug\HRSmart.data.pdb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
